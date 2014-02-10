@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="horizontal" >
+
+    <ImageButton
+        android:id="@+id/modoEntrenamiento"
+        style="@android:style/Theme.Holo.Light"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:src="@drawable/entrenamiento2" />
+
+    <ImageButton
+        android:id="@+id/modoCompeticion"
+        style="@android:style/Theme.Holo.Light"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:baselineAlignBottom="true"
+        android:scaleType="fitCenter"
+        android:src="@drawable/competicion" />
+
+    <ImageButton
+        android:id="@+id/modoEstadisticas"
+        style="@android:style/Theme.Holo.Light"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:baselineAlignBottom="true"
+        android:labelFor="@string/modoEstatistica"
+        android:scaleType="fitCenter"
+        android:src="@drawable/estadisticas" />
+
+</LinearLayout>

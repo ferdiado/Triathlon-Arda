@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest package="com.arda.triathlon"
+    android:versionCode="1"
+    android:versionName="1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="18" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.Holo.Light" >
+        <activity
+            android:name="com.arda.triathlon.Inicio"
+            android:label="@string/app_name"
+            android:logo="@drawable/ic_launcher"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="Login"
+            android:label="@string/pantallaLogin"
+            android:logo="@drawable/ic_launcher"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
+        </activity>
+        <activity
+            android:name="Modo"
+            android:label="@string/pantallaModo"
+            android:logo="@drawable/ic_launcher"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Holo.Light" >
+        </activity>
+        <activity
+            android:name="Entrenamiento"
+            android:label="@string/pantallaEntrenamiento"
+            android:logo="@drawable/entrenamiento2"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Holo.Light" >
+        </activity>
+        <activity
+            android:name="Competicion"
+            android:label="@string/pantallaCompeticion"
+            android:logo="@drawable/competicion"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Holo.Light" >
+        </activity>
+        <activity
+            android:name="Estadisticas"
+            android:label="@string/pantallaEstadisticas"
+            android:logo="@drawable/estadisticas"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Holo.Light" >
+        </activity>
+        <activity
+            android:name="Entrenamiento_Entrenador"
+            android:label="@string/pantallaEntrenamientoEntrenador"
+            android:logo="@drawable/entrenador"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Holo.Light" >
+        </activity>
+        <activity 
+            android:name="Deportista"
+			android:label="@string/pantallaEntrenadorDeportista"
+            android:logo="@drawable/deportista"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Holo.Light" >
+            
+        </activity>
+    </application>
+
+</manifest>

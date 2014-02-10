@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <ImageView
+        android:id="@+id/logo2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/labelUsuario"
+        android:layout_alignParentTop="true"
+        android:scaleType="fitCenter"
+        android:src="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/labelUsuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="133dp"
+        android:layout_marginTop="223dp"
+        android:layout_toLeftOf="@+id/usuario"
+        android:text="@string/labelUsuario"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/usuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/labelUsuario"
+        android:layout_alignBottom="@+id/labelUsuario"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:hint="@string/usuario"
+        android:inputType="textEmailAddress|textPersonName" >
+
+        <requestFocus />
+
+    </EditText>
+
+    <TextView
+        android:id="@+id/labelPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/password"
+        android:layout_alignBottom="@+id/password"
+        android:layout_alignLeft="@+id/labelUsuario"
+        android:text="@string/labelPassword"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/tituloApp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="21dp"
+        android:layout_marginTop="16dp"
+        android:shadowColor="#333"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="15"
+        android:text="@string/app_name"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="70sp"
+        android:textStyle="italic" />
+
+    <Button
+        android:id="@+id/iniciar"
+        style="@android:style/Theme.Holo.Light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/resgistrarse"
+        android:layout_alignBottom="@+id/resgistrarse"
+        android:layout_alignRight="@+id/password"
+        android:text="@string/iniciar" />
+
+    <Button
+        android:id="@+id/resgistrarse"
+        style="@android:style/Theme.Holo.Light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/password"
+        android:layout_marginTop="54dp"
+        android:layout_toRightOf="@+id/labelUsuario"
+        android:text="@string/registrarse" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/usuario"
+        android:layout_below="@+id/usuario"
+        android:layout_marginTop="51dp"
+        android:ems="10"
+        android:hint="@string/password"
+        android:inputType="textPassword" >
+    </EditText>
+
+    <RadioGroup
+        android:id="@+id/opcion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iniciar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="22dp" >
+
+        <RadioButton
+            android:id="@+id/entrenador"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/radioEntrenador" />
+
+        <RadioButton
+            android:id="@+id/deportista"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/radioDeportista" />
+    </RadioGroup>
+
+</RelativeLayout>

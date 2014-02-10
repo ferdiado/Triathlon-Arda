@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <ImageButton
+            android:id="@+id/ciclismo"
+            style="@android:style/Theme.Holo.Light"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ciclismo" />
+
+        <ImageButton
+            android:id="@+id/natacion"
+            style="@android:style/Theme.Holo.Light"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:baselineAlignBottom="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/natacion" />
+
+        <ImageButton
+            android:id="@+id/carrera_a_pie"
+            style="@android:style/Theme.Holo.Light"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:baselineAlignBottom="true"
+            android:labelFor="@string/modoEstatistica"
+            android:scaleType="fitCenter"
+            android:src="@drawable/carrera_a_pie" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/condiciones"
+        style="@android:style/Theme.Holo.Light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/condiciones" />
+
+</LinearLayout>

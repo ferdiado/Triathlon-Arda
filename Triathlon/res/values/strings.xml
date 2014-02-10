@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Triathlon</string>
+    <string name="pantallaLogin">Triathlon - Login</string>
+    <string name="pantallaModo">Triathlon - Modo</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="configuracion">Configuración</string>
+    <string name="labelUsuario">Usuario:</string>
+    <string name="labelPassword">Contraseña:</string>
+    <string name="registrarse">Registrarse</string>
+    <string name="iniciar">Iniciar</string>
+    <string name="password">Inserta contraseña</string>
+    <string name="usuario">Inserta usuario</string>
+    <string name="radioEntrenador">Entrenador</string>
+    <string name="radioDeportista">Deportista</string>
+    <string name="modoEntrenamiento">Entrenamiento</string>
+    <string name="modoCompeticion">Competición</string>
+    <string name="modoEstatistica">Estadisticas</string>
+    <string name="pantallaEntrenamiento">Triathlon - Entrenamiento</string>
+    <string name="condiciones">Añadir Condiciones</string>
+    <string name="estadisticasMenu">Estadisticas</string>
+    <string name="advertenciaMenu">Advertencia</string>
+    <string name="pantallaCompeticion">Triathlon - Competicion</string>
+    <string-array name="disciplinas">
+        <item >Ciclismo</item>
+        <item >Natación</item>
+        <item >Carrera a pie</item>
+    </string-array>
+        <string name="labelCompeticion">Tipo de Competición:</string>
+        <string name="labelCantDepor">Cantidad de Deportistas:</string>
+        <string name="label1Deportista">Deportista 1:</string>
+        <string name="label2Deportista">Deportista 2:</string>
+        <string name="label3Deportista">Deportista 3:</string>
+        <string name="label4Deportista">Deportista 4:</string>
+        <string name="label5Deportista">Deportista 5:</string>
+        <string name="textDeportista1">Inseta el nombre del primer deportista</string>
+        <string name="textDeportista2">Inseta el nombre del segundo deportista</string>
+        <string name="textDeportista3">Inseta el nombre del tercer deportista</string>
+        <string name="textDeportista4">Inseta el nombre del cuarto deportista</string>
+        <string name="textDeportista5">Inseta el nombre del quinto deportista</string>
+        <string-array name="cantidadDeportistas">
+            <item >1</item>
+            <item >2</item>
+            <item >3</item>
+            <item >4</item>
+            <item >5</item>
+        </string-array>
+            <string name="siguiente">Siguiente:</string>
+            <string name="labelLista">Lista de Sesiones</string>
+            <string name="labelTituloDepo">Deportista</string>
+            <string name="labelTituloTiempoT">Tiempo Total</string>
+            <string name="labelTiempoCi">Tiempo Ciclismo</string>
+            <string name="labelTiempoN">Tiempo Natación</string>
+            <string name="labelTiempoCa">Tiempo Carrera a pie</string>
+            <string name="labelModo">Modo</string>
+            <string name="pantallaEstadisticas">Triathlon - Estadisticas</string>
+            <string name="labelListaDep">Lista de Deportistas</string>
+            <string name="pantallaEntrenamientoEntrenador">Triathlon - Entrenamiento - Modo Entrenador</string>
+            <string name="labelSeleccionado">Selecciona Deportista</string>
+            <string name="labelNombreDep">Nombre</string>
+            <string name="labelApellidosDep">Apellidos</string>
+            <string name="labelEdadDep">Edad</string>
+            <string name="pantallaEntrenadorDeportista">Triathlon - Captura de datos</string>
+            <string name="inicio">Inicio</string>
+            <string name="parar">Parar</string>
+            <string name="pausa">Pausa</string>
+            <string name="nombreDeportista1">Juan Ramirez</string>
+            <string name="nombreDeportista2">Elsa Martín</string>
+            <string name="nombreDeportista3">Santiago Garcia</string>
+
+</resources>
