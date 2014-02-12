@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Chronometer;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
@@ -16,6 +17,7 @@ public class Deportista extends Activity {
 	String disciplina, titulo;
 	int cantidadDep;
 	ImageButton play1, play2, play3, guardar1, guardar2, guardar3, pausa1, pausa2, pausa3,stop1, stop2, stop3;
+	Chronometer crono1;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +29,7 @@ public class Deportista extends Activity {
 		disciplina = recibido.getStringExtra("disciplina");
 		cantidadDep = recibido.getIntExtra("cantidad", 1);
 		titulo = getString(R.string.pantallaEntrenamientoEntrenador);
+		crono1 = (Chronometer) findViewById(R.id.cronometro);
 
 		this.setTitle(titulo + " - "+disciplina);
 
@@ -37,11 +40,55 @@ public class Deportista extends Activity {
 			@Override
 			public void onClick(View v) {     
 				//Llama a la pantalla de entrenamiento
-				
+				crono1.start();
+				pausa1.setVisibility(0);
+				stop1.setVisibility(0);
+				play1.setVisibility(4);
+				pausa1.setEnabled(true);
+				play1.setEnabled(false);
+				stop1.setEnabled(true);
 			}
 
 		});
 
+		pausa1 = (ImageButton) findViewById(R.id.pausa);
+		pausa1.setEnabled(false);
+		pausa1.setVisibility(4);
+		pausa1.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View v) {     
+				//Llama a la pantalla de entrenamiento
+				crono1.stop();
+				pausa1.setEnabled(false);
+				pausa1.setVisibility(4);
+				play1.setVisibility(0);
+				play1.setEnabled(true);
+			}
+
+		});
+		
+		stop1 = (ImageButton) findViewById(R.id.parar);
+		stop1.setEnabled(false);
+		stop1.setVisibility(4);
+		stop1.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View v) {     
+				//Llama a la pantalla de entrenamiento
+				crono1.stop();
+				stop1.setEnabled(false);
+				pausa1.setEnabled(false);
+				pausa1.setVisibility(4);
+				stop1.setVisibility(4);
+				play1.setVisibility(0);
+				play1.setEnabled(true);
+				Toast.makeText(getApplicationContext(), "La cuenta es: ",Toast.LENGTH_LONG ).show();
+			}
+
+		});
+		
+		
 		play2 = (ImageButton) findViewById(R.id.inicio2);
 		play2.setEnabled(false);
 		play2.setOnClickListener(new OnClickListener(){

@@ -65,6 +65,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Chronometer"
+            android:format="%s:%ss:%SS"
             android:textSize="30dp" />
 
         <ImageButton
@@ -136,6 +137,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Chronometer"
+            android:format="H:MM:SS"
             android:textSize="30dp" />
 
         <ImageButton
@@ -207,6 +209,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Chronometer"
+            android:format="H:MM:SS"
             android:textSize="30dp" />
 
         <ImageButton
