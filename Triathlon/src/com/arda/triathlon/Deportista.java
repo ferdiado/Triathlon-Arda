@@ -17,7 +17,7 @@ public class Deportista extends Activity {
 	String disciplina, titulo;
 	int cantidadDep;
 	ImageButton play1, play2, play3, guardar1, guardar2, guardar3, pausa1, pausa2, pausa3,stop1, stop2, stop3;
-	Chronometer crono1, crono2;
+	Chronometer crono1, crono2, crono3;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
