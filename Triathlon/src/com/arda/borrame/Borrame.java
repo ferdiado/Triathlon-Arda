@@ -10,4 +10,10 @@ package com.arda.borrame;
 public class Borrame {
 
 	String mecagoensusmuelas;
+	
+	
+	
+	public void unaMierda(){
+		
+	}
 }
