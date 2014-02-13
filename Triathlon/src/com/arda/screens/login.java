@@ -1,5 +1,94 @@
 package com.arda.screens;
 
-public class login {
+import com.arda.tasukete.tasuketeLogin;
+import com.arda.triathlon.R;
+
+import android.os.Bundle;
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.view.Menu;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+
+public class login extends Activity {
+EditText etUser;
+EditText etPass;
+Button bLogin;
+Button bPass;//Decir a josu que ponga pass como id del bPass;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_login);
+		
+		etUser = (EditText) this.findViewById(R.id.editUsario);
+		etPass = (EditText) this.findViewById(R.id.editPassword);
+		bLogin = (Button) this.findViewById(R.id.login);
+		bPass = (Button) this.findViewById(R.id.pass);
+		bLogin.setOnClickListener(new OnClickListener( ){
+			 
+            @Override
+            public void onClick(View v) {     
+            		Intent i = new Intent(login.this, tasuketeLogin.class);
+            		if(etUser.getText().toString().isEmpty())
+            		{Toast toast = Toast.makeText(getApplicationContext(), "Fail", Toast.LENGTH_SHORT);
+            		toast.show();
+            		}else{
+            			if(etPass.getText().toString().isEmpty())
+            			{Toast toast = Toast.makeText(getApplicationContext(), "Fail", Toast.LENGTH_SHORT);
+                		toast.show();
+                		}else{
+                			i.putExtra("User", etUser.getText().toString());
+                    		i.putExtra("Pass", etPass.getText().toString());
+                    		startActivityForResult(i, 1);
+                		}
+            			
+            		}
+            		
+         		//Toast toast = Toast.makeText(getApplicationContext(), etUser.getText().toString(), Toast.LENGTH_SHORT);
+        		//toast.show();
+            }
+
+     });
+	}
+
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+		  if (requestCode == 1) {
+
+		     if(resultCode == RESULT_OK){      
+		    	Context context = getApplicationContext();
+		    	int duration = Toast.LENGTH_SHORT;
+		    	if(data.getBooleanExtra("Res", true)==true)
+		    	{
+		    		
+			 		Toast toast = Toast.makeText(context, "GG", duration);
+			 		toast.show();  
+		    		
+		    	}else{
+		    		Toast toast = Toast.makeText(context, "BG", duration);
+			 		toast.show(); 
+		    	}
+       
+		     }
+		     if (resultCode == RESULT_CANCELED) {    
+		         //Write your code if there's no result
+		     }
+		  }
+		}
+	
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.login, menu);
+		return true;
+	}
 
 }
