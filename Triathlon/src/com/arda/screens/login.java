@@ -1,7 +1,6 @@
 package com.arda.screens;
 
 import com.arda.tasukete.tasuketeLogin;
-import com.arda.triathlon.R;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -12,7 +11,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class login extends Activity {
@@ -23,7 +21,7 @@ Button bRegister;//Decir a josu que ponga pass como id del bPass;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_login0);
+		setContentView(R.layout.activity_login);
 		
 		etUser = (EditText) this.findViewById(R.id.editUsario);
 		etPass = (EditText) this.findViewById(R.id.editPassword);
@@ -32,8 +30,8 @@ Button bRegister;//Decir a josu que ponga pass como id del bPass;
 		bLogin.setOnClickListener(new OnClickListener( ){
 			 
             @Override
-            public void onClick(View v) {     
-            		Intent i = new Intent(login.this, tasuketeLogin.class);
+            public void onClick(View v) {
+            	Intent i = new Intent(login.this, tasuketeLogin.class);
             		if(etUser.getText().toString().isEmpty())
             		{Toast toast = Toast.makeText(getApplicationContext(), "Fail", Toast.LENGTH_SHORT);
             		toast.show();
@@ -65,9 +63,9 @@ Button bRegister;//Decir a josu que ponga pass como id del bPass;
 		     if(resultCode == RESULT_OK){      
 		    	Context context = getApplicationContext();
 		    	int duration = Toast.LENGTH_SHORT;
-		    	if(data.getBooleanExtra("Res", true)==true)
+		    	if(data.getBooleanExtra("Res", true))
 		    	{
-		    		
+
 			 		Toast toast = Toast.makeText(context, "GG", duration);
 			 		toast.show();  
 		    		
@@ -87,7 +85,7 @@ Button bRegister;//Decir a josu que ponga pass como id del bPass;
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.login, menu);
+		//getMenuInflater().inflate(R.menu.login, menu);
 		return true;
 	}
 

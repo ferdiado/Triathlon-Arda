@@ -1,5 +1,7 @@
 package com.arda.triathlon;
 
+import com.arda.screens.R;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
