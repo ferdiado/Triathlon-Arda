@@ -19,7 +19,7 @@ public class login extends Activity {
 EditText etUser;
 EditText etPass;
 Button bLogin;
-Button bPass;//Decir a josu que ponga pass como id del bPass;
+Button bRegister;//Decir a josu que ponga pass como id del bPass;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -28,7 +28,7 @@ Button bPass;//Decir a josu que ponga pass como id del bPass;
 		etUser = (EditText) this.findViewById(R.id.editUsario);
 		etPass = (EditText) this.findViewById(R.id.editPassword);
 		bLogin = (Button) this.findViewById(R.id.login);
-		bPass = (Button) this.findViewById(R.id.pass);
+		bRegister = (Button) this.findViewById(R.id.register);
 		bLogin.setOnClickListener(new OnClickListener( ){
 			 
             @Override
