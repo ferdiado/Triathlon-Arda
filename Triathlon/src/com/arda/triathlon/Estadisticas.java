@@ -14,7 +14,7 @@ public class Estadisticas extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_estadisticas);
+		setContentView(R.layout.activity_estadisticas0);
 	}
 
 	@Override

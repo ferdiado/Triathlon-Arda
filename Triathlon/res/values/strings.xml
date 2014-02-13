@@ -69,5 +69,7 @@
             <string name="nombreDeportista2">Elsa Martín</string>
             <string name="nombreDeportista3">Santiago Garcia</string>
             <string name="imagenlogo">Imagen Logo</string>
+            <string name="labelTituloDistanciaT">Distancia Total</string>
+            <string name="labelTituloModo">Modo</string>
 
 </resources>
