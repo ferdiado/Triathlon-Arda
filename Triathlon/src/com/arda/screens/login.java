@@ -23,7 +23,7 @@ Button bRegister;//Decir a josu que ponga pass como id del bPass;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_login);
+		setContentView(R.layout.activity_login0);
 		
 		etUser = (EditText) this.findViewById(R.id.editUsario);
 		etPass = (EditText) this.findViewById(R.id.editPassword);
