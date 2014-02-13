@@ -74,6 +74,7 @@
             android:theme="@android:style/Theme.Holo.Light" >
             
         </activity>
+        <activity android:name="com.arda.tasukete.tasuketeLogin"></activity>
     </application>
 
 </manifest>
