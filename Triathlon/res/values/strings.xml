@@ -70,6 +70,22 @@
             <string name="nombreDeportista3">Santiago Garcia</string>
             <string name="imagenlogo">Imagen Logo</string>
             <string name="labelTituloDistanciaT">Distancia Total</string>
-            <string name="labelTituloModo">Modo</string><string name="usuarioregistro">Usuario:</string><string name="passwordregistro">Contraseña:</string><string name="nombreregistro">Nombre:</string><string name="primerapellidoregistro">Primer Apellido:</string><string name="segundoapellidoregistro">Segundo Apellido:</string><string name="fechanacimientoregistro">Fecha de Nacimiento:</string><string name="sexoregistro">Sexo:</string><string name="hombreregistro">Hombre</string><string name="mujerregistro">Mujer</string><string name="fotoregistro">Foto:</string><string name="entrenadorregistro">Entrenador</string><string name="deportistaregistro">Deportista</string><string name="registrarseregistro">Registrarse</string><string name="imagenregistro">imagenregistro</string><string name="aceptarregistro">aceptar</string><string name="cancelarregistro">Cancelar</string>
-
+            <string name="labelTituloModo">Modo</string>
+            <string name="usuarioregistro">Usuario:</string>
+            <string name="passwordregistro">Contraseña:</string>
+            <string name="nombreregistro">Nombre:</string>
+            <string name="primerapellidoregistro">Primer Apellido:</string>
+            <string name="segundoapellidoregistro">Segundo Apellido:</string>
+            <string name="fechanacimientoregistro">Fecha de Nacimiento:</string>
+            <string name="sexoregistro">Sexo:</string>
+		    <string name="hombreregistro">Hombre</string>
+		    <string name="mujerregistro">Mujer</string>
+		    <string name="fotoregistro">Foto:</string>
+		    <string name="entrenadorregistro">Entrenador</string>
+		    <string name="deportistaregistro">Deportista</string>
+		    <string name="registrarseregistro">Registrarse</string>
+		    <string name="imagenregistro">imagenregistro</string>
+		    <string name="aceptarregistro">aceptar</string>
+		    <string name="cancelarregistro">Cancelar</string>
+		    <string name="insertDistancia">Inserta la distancia recorrida</string>
 </resources>
