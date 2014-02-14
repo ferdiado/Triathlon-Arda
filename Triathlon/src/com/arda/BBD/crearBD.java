@@ -35,6 +35,19 @@ public class crearBD extends SQLiteOpenHelper{
 		private static final String N_TABLA1 = "Users";
 		private static final String N_TABLA2 = "Tiempos";
 		
+		
+	//Parametros de tabla Im_se
+		public static final String IDSESION="IDSESION";
+		public static final String IDUSER="IDUSER";
+		public static final String IDFOTO="IDFOTO";
+	
+	//Parametros de tabla tiposcomp
+		
+		public static final String IDCOM="IDCOM";
+		public static final String DISNAT="DISNAT";
+		public static final String DISCAR="DISCAR";
+		public static final String DISCI="DISCAR";
+		
 	public crearBD(Context contexto, String nombre,
             CursorFactory factory, int version) {
 		super(contexto,nombre,factory,version);
@@ -70,6 +83,12 @@ public class crearBD extends SQLiteOpenHelper{
                 DISREC+"    VARCHAR,"+
                 VELOCIDAD+" INTEGER );");
 		
+	/*	db.execSQL("CREATE TABLE"+N_TABLA3+"("+ 
+    IDSESION INTEGER PRIMARY KEY AUTOINCREMENT,
+    IDUSER   VARCHAR REFERENCES Users ( IDUSER ),
+    IDFOTO   VARCHAR 
+);");
+		*/
 		
 	}
 	
