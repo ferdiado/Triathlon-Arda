@@ -22,5 +22,6 @@
             </intent-filter>
         </activity>
         <activity android:name="com.arda.tasukete.tasuketeLogin"></activity>
+        <activity android:name="com.arda.screens.registro"></activity>
         </application>
 </manifest>
