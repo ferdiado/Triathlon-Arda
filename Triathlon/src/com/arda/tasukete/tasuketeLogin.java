@@ -16,7 +16,7 @@ import android.widget.Toast;
 public class tasuketeLogin extends Activity {
 	public void onCreate(Bundle savedInstance ){
         super.onCreate(savedInstance);
-        Users u = new com.arda.BBD.Users(null);
+        Users u = new Users();
         Intent i = this.getIntent();
         String nombre = i.getStringExtra("User");
         String apellidos = i.getStringExtra("Pass");
