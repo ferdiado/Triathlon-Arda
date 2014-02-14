@@ -56,8 +56,8 @@ public class crearBD extends SQLiteOpenHelper{
 			    ID_FECHA+"     DATE," +
 			    ID_ENTRENADOR+" BOOLEAN," +
 			    ID_DEPORTISTA+" BOOLEAN,"+
-			    ID_SEXO+" BOOLEAN,"+
-			    ID_FOTO+"   B);");
+			    ID_SEXO+" BOOLEAN"
+			   /* ID_FOTO+"   B*/+");");
 		
 		db.execSQL("CREATE TABLE"+N_TABLA2+"("+ 
 			    ID_USER+  "  VARCHAR  PRIMARY KEY, "+

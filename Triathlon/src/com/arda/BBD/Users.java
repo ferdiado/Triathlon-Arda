@@ -125,7 +125,7 @@ public class Users{
 	 * @param SEXO
 	 * @param FOTO
 	 */
- public int crearEntrada(String USUARIO, String CONTRASEÑA,String NOMBRE,String FECHA, boolean ENTRENADOR,boolean DEPORTISTA,boolean SEXO,byte[] FOTO) {
+ public int crearEntrada(String USUARIO, String CONTRASEÑA,String NOMBRE,String FECHA, boolean ENTRENADOR,boolean DEPORTISTA,boolean SEXO/*,byte[] FOTO*/) {
 		//Metodo para insertar en la base de datos .Debo realizar un switch con 0 insertado,1 usuario repetido,2 otros fallos.Que devuelva 
 		//Meterlo dentro de un try catch.
 		//El siguiente metodo devuelve un int en función de si se ha insertado o no. Este metodo inserta en la base de datos los datos.
@@ -141,7 +141,7 @@ public class Users{
 		cv.put(ID_ENTRENADOR,ENTRENADOR);
 		cv.put(ID_DEPORTISTA,DEPORTISTA);
 		cv.put(ID_SEXO,SEXO);
-		cv.put(ID_FOTO,FOTO);
+		//cv.put(ID_FOTO,FOTO);
 		nBD.insert(N_TABLA, null, cv);
 		nBD.close();
 		return estado;
