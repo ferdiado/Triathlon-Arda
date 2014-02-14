@@ -3,10 +3,10 @@ package com.arda.BBD;
 import java.sql.Blob;
 
 import org.apache.http.util.ByteArrayBuffer;
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteException;
@@ -16,9 +16,10 @@ import android.database.sqlite.SQLiteOpenHelper;
  * @author Daniel 
  *
  */
-public class Users {
+public class Users{
 	
-	// Ponemos el final para no cambiar los parametros
+
+	//Aqui tenemos todos los campos de la tabla Users
 	public static final String ID_FILA = "_id";
 	public static final String ID_USER = "IDUSER";
 	public static final String ID_CONTRA = "CONTRA";
@@ -29,75 +30,44 @@ public class Users {
 	public static final String  ID_SEXO = "SEXO";
 	public static final String ID_FOTO = "FOTO";
 	
-	private static final String N_BD = "BD_arda"; //nombre de la base de datos
+	//nombre de la base de datos
 	// final para que no cambie la base de datos
+	private static final String N_BD = "BD_arda"; 
 	
-	private static final String N_TABLA = "Users";//nombre de la tabla a seleccionar
+	//nombre de la tabla a seleccionar
+	private static final String N_TABLA = "Users";
 	
-	private static final int  VERSION_BD = 1; // Versión de base de datos 
-	
-	
-	private BDHelper nHelper ; //instancia de la clase BDHelper
-	private final  Context nContexto; // instancia para nuestro contexto
-	private SQLiteDatabase nBD;//nombre de la base de datos sqlite
+	private SQLiteDatabase nBD;
+	private Context nContexto;
 	
 	
-
-	private static class BDHelper extends SQLiteOpenHelper {
-
-		public BDHelper(Context context) {
-			super(context, N_BD, null, VERSION_BD);
-			
-		}
-
-		@Override // Solo se va a llamar la primera vez que se crea la base de datos . Si esta ya creada, lo salta.
-		public void onCreate(SQLiteDatabase db) {
-			
-			
-			// Creamos la base de datos 
-			
-			
-			db.execSQL("CREATE TABLE"+N_TABLA+"(" + 
-				    ID_USER+ "VARCHAR PRIMARY KEY, "+
-				    ID_CONTRA+"    INTEGER,"+
-				    ID_NOMBRE+" VARCHAR,"+
-				    ID_NOMBRE+"    VARCHAR,"+
-				    ID_FECHA+"     DATE," +
-				    ID_ENTRENADOR+" BOOLEAN," +
-				    ID_DEPORTISTA+" BOOLEAN,"+
-				    ID_SEXO+" BOOLEAN,"+
-				    ID_FOTO+"   B);");
-			
-			
-		}
-
-		@Override //COMPROBAR SI LA TABLA EXISTE, se la carga. Y llama al metodo onCreate
-		public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-			// TODO Auto-generated method stub
-			
-			db.execSQL("DROP TABLE IF EXISTS "+ N_TABLA);
-			onCreate(db);
-			
-			
-		}
-		
-		
+	//nombre de la base de datos sqlit
+	//private SQLiteDatabase nBD;
+	
+	crearBD db1= new crearBD (nContexto,crearBD.N_BD, null,1);//Creamos la base de datos.
+	
+	/**
+	 * Este metodo abre la base de datos.
+	 * @author daamca
+	 * @return
+	 */
+	public boolean abrirBd(){
+		//Abre la base de datos para escribir.
+		 nBD= db1.getWritableDatabase();
+		 
+		 //Comprueba si la base de datos es nula o no.
+		 if (nBD!=null){
+			 return true;
+		 }else {
+			 return false;
+		 		}
 	}
-	// constructor de Users.class
-	public Users (Context c){
-		nContexto = c;
-	} 
 	
-	//Metodo para crear un helper
-	public Users abrir(){
-		nHelper = new BDHelper(nContexto);
-		nBD= nHelper.getWritableDatabase(); // esto lo hace para poder escribir en la base de datos y devuelve this.
-		return this;
-	}
-	//Metodo que cierra la base de datos
+	//Metodo que cierra la base de datos al completo
 	public void cerrar() {
 		
-		nHelper.close();
+		nBD.close();
+	
 	}
 	
 	/**
@@ -106,21 +76,39 @@ public class Users {
 	 * @param contraseña
 	 * @return
 	 */
-	
 	public boolean logeo(String usuario,String contraseña){
-		boolean estado;
-	
-		try{
-			SQLiteDatabase bd=nHelper.getReadableDatabase();
-		bd.rawQuery("SELECT '"+usuario+"' , '"+contraseña+"' from Users;", new String [] {});
 		
+		Cursor cur1 = null;
+		Cursor cur2 =null;
+		try{
+			nBD=db1.getReadableDatabase();
+		 cur1=nBD.rawQuery("SELECT IDUSER from Users where IDUSER='"+usuario+"'LIMIT 1;", new String [] {});
+		 cur2=nBD.rawQuery("SELECT CONTRA from Users where CONTRA='"+contraseña+"'LIMIT 1;", new String [] {});
+		nBD.close();
+		
+	
 		}catch(SQLiteException e){
 			
 		}
-		if(comprobarUserRepe(usuario,contraseña)==true){
-				return estado=false;
+		//Comprueba si el cursor1 está vacio.
+		if (cur1.moveToFirst() == false){
+			   //el cursor está vacío
+			   return false;
+			}
+		//Comprueba si el cursor2 esta vacio
+		if (cur2.moveToFirst() == false){
+			   //el cursor está vacío
+			   return false;
+			}
+		
+		String name = cur1.getString(0);
+		String contra =cur2.getString(0);
+		
+		//Esto compruba el user y la contra y devuelve falso o verdadero
+		if(name.equalsIgnoreCase(usuario) && contra.equalsIgnoreCase(contra)){
+				return false;
 			}else {
-				return estado=true;
+				return true;
 			}
 		
 		
@@ -143,8 +131,10 @@ public class Users {
 		//El siguiente metodo devuelve un int en función de si se ha insertado o no. Este metodo inserta en la base de datos los datos.
 		int estado=0;
 		try {
+		nBD=db1.getWritableDatabase();
 		ContentValues cv = new ContentValues();
-		cv.put(ID_USER,USUARIO);//El primer parametro es donde lo va a guardar.Un put para cada valor.
+		//Aqui mediante el metodo put del ContentValues insertamos los campos(ID,Valor)
+		cv.put(ID_USER,USUARIO);
 		cv.put(ID_CONTRA,CONTRASEÑA);
 		cv.put(ID_NOMBRE,NOMBRE);
 		cv.put(ID_FECHA,FECHA);
@@ -153,9 +143,10 @@ public class Users {
 		cv.put(ID_SEXO,SEXO);
 		cv.put(ID_FOTO,FOTO);
 		nBD.insert(N_TABLA, null, cv);
+		nBD.close();
 		return estado;
 		}catch(SQLiteException e){
-			if(comprobarUserRepe(USUARIO,CONTRASEÑA)==true){
+			if(userBis(USUARIO)==true){
 				return estado=1;
 			}else {
 				return estado=2;
@@ -163,19 +154,27 @@ public class Users {
 		}
 		
 	}
-	
-	 public boolean comprobarUserRepe(String USUARIO, String CONTRASEÑA) {
-		 SQLiteDatabase bd=nHelper.getReadableDatabase();
+	/**
+	 * Este metodo esta comprobando si el usuario está repetido. 
+	 * @param daamca
+	 * @return
+	 */
+	 public boolean userBis(String USUARIO) {
+		 //Aqui instanciamos al metodo getReadableDatabase,este metodo abre la base de datos para lectura.
+		 nBD=db1.getReadableDatabase();
 		
-			Cursor c= bd.rawQuery("SELECT '"+USUARIO+"' , '"+CONTRASEÑA+"' from Users;", new String [] {});
-			if(c.getString(1).equals(USUARIO)){
+			Cursor c= nBD.rawQuery("SELECT IDUSER  from Users where IDUSER='"+USUARIO+"' LIMIT 1;", new String [] {});
+			String iduser =c.getString(0);
+			nBD.close();	
+			if(iduser.equals(USUARIO)){
 				
 				return true;
 			}else{
 				return false;
 			}
-			
+		
 	    }
+	
 
 
 }
