@@ -11,7 +11,9 @@
 
     <LinearLayout
         android:layout_width="985dp"
-        android:layout_height="432dp" android:baselineAligned="false">
+        android:layout_height="432dp"
+        android:baselineAligned="false"
+        android:gravity="center_horizontal" >
 
         <RelativeLayout
             android:layout_width="0dp"

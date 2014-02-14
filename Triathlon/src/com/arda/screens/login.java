@@ -52,6 +52,19 @@ Button bRegister;//Decir a josu que ponga pass como id del bPass;
             }
 
      });
+		bRegister.setOnClickListener(new OnClickListener( ){
+			 
+            @Override
+            public void onClick(View v) {
+            	Intent i = new Intent(login.this, registro.class);
+            	startActivity(i);
+            			
+            		
+            		
+         		
+            }
+
+     });
 	}
 
 	
