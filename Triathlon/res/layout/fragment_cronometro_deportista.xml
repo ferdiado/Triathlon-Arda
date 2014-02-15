@@ -34,20 +34,24 @@
         <LinearLayout
             android:id="@+id/ControlesBotones"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal" >
 
             <ImageButton
                 android:id="@+id/playBoton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="0.47"
                 android:src="@drawable/ic_action_play" />
 
             <ImageButton
                 android:id="@+id/stopBoton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:src="@drawable/ic_action_stop" />
-
         </LinearLayout>
 
         <EditText
@@ -55,6 +59,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/insertDistancia"
+            android:textSize="12sp"
             android:inputType="numberDecimal" >
 
             <requestFocus />

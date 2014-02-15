@@ -87,5 +87,5 @@
 		    <string name="imagenregistro">imagenregistro</string>
 		    <string name="aceptarregistro">aceptar</string>
 		    <string name="cancelarregistro">Cancelar</string>
-		    <string name="insertDistancia">Inserta la distancia recorrida</string>
+		    <string name="insertDistancia">Distancia recorrida</string>
 </resources>
