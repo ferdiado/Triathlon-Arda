@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Triathlon</string>
+    <string name="app_name">Triathlon ARDA</string>
     <string name="pantallaLogin">Triathlon - Login</string>
     <string name="pantallaModo">Triathlon - Modo</string>
     <string name="hello_world">Hello world!</string>
