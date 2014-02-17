@@ -19,7 +19,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.53" >
-
+<requestFocus />
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
@@ -116,7 +116,7 @@
                 android:layout_alignTop="@+id/textView3"
                 android:ems="10" android:inputType="text">
 
-                <requestFocus />
+                
             </EditText>
 
             <TextView

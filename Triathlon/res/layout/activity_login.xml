@@ -24,6 +24,7 @@
             android:adjustViewBounds="false"
             android:contentDescription="@string/imagenlogo"
             android:src="@drawable/logo_arda" />
+        <requestFocus />
 
         <LinearLayout
             android:id="@+id/contenedorDerecha"
@@ -60,7 +61,7 @@
                     android:ems="10"
                     android:inputType="textPassword" >
 
-                    <requestFocus />
+                    
                 </EditText>
 
                 <TextView
