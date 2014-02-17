@@ -23,6 +23,7 @@ Button bRegister;//Decir a josu que ponga pass como id del bPass;
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
 		
+		
 		etUser = (EditText) this.findViewById(R.id.editUsario);
 		etPass = (EditText) this.findViewById(R.id.editPassword);
 		bLogin = (Button) this.findViewById(R.id.login);
@@ -76,7 +77,7 @@ Button bRegister;//Decir a josu que ponga pass como id del bPass;
 		     if(resultCode == RESULT_OK){      
 		    	Context context = getApplicationContext();
 		    	int duration = Toast.LENGTH_SHORT;
-		    	if(data.getBooleanExtra("Res", true))
+		    	if(data.getBooleanExtra("Res", false))
 		    	{
 
 			 		Toast toast = Toast.makeText(context, "GG", duration);
@@ -92,7 +93,29 @@ Button bRegister;//Decir a josu que ponga pass como id del bPass;
 		         //Write your code if there's no result
 		     }
 		  }
+		  if (requestCode == 2) {
+
+			     if(resultCode == RESULT_OK){      
+			    	Context context = getApplicationContext();
+			    	int duration = Toast.LENGTH_SHORT;
+			    	if(data.getBooleanExtra("Reg", false))
+			    	{
+
+				 		Toast toast = Toast.makeText(context, "Registro Completo", duration);
+				 		toast.show();  
+			    		
+			    	}else{
+			    		Toast toast = Toast.makeText(context, "Error en el registro", duration);
+				 		toast.show(); 
+			    	}
+	       
+			     }
+			     if (resultCode == RESULT_CANCELED) {    
+			         //Write your code if there's no result
+			     }
+			  }
 		}
+	
 	
 
 	@Override
