@@ -34,6 +34,9 @@ public class crearBD extends SQLiteOpenHelper{
 		
 		private static final String N_TABLA1 = "Users";
 		private static final String N_TABLA2 = "Tiempos";
+		private static final String N_TABLA3 = "Im_Se";
+		private static final String N_TABLA4 = "TIPOSCOMP";
+		
 		
 		
 	//Parametros de tabla Im_se
@@ -69,8 +72,8 @@ public class crearBD extends SQLiteOpenHelper{
 			    ID_FECHA+"     DATE," +
 			    ID_ENTRENADOR+" BOOLEAN," +
 			    ID_DEPORTISTA+" BOOLEAN,"+
-			    ID_SEXO+" BOOLEAN"
-			   /* ID_FOTO+"   B*/+");");
+			    ID_SEXO+" BOOLEAN,"+
+			   ID_FOTO+"  VARCHAR );");
 		
 		db.execSQL("CREATE TABLE"+N_TABLA2+"("+ 
 			    ID_USER+  "  VARCHAR  PRIMARY KEY, "+
@@ -83,12 +86,15 @@ public class crearBD extends SQLiteOpenHelper{
                 DISREC+"    VARCHAR,"+
                 VELOCIDAD+" INTEGER );");
 		
-	/*	db.execSQL("CREATE TABLE"+N_TABLA3+"("+ 
-    IDSESION INTEGER PRIMARY KEY AUTOINCREMENT,
-    IDUSER   VARCHAR REFERENCES Users ( IDUSER ),
-    IDFOTO   VARCHAR 
-);");
-		*/
+		db.execSQL("CREATE TABLE"+N_TABLA3+"("+ 
+				IDSESION + "INTEGER PRIMARY KEY AUTOINCREMENT,"+
+				IDUSER+"   VARCHAR REFERENCES Users ( IDUSER ),"+
+				IDFOTO+"   VARCHAR );");
+		db.execSQL("CREATE TABLE"+N_TABLA4+"("+ 
+				IDCOM + "VARCHAR PRIMARY KEY,"+
+				DISNAT+"   VARCHAR,"+
+				DISCAR+"   VARCHAR,"+
+				DISCI+"   VARCHAR );");
 		
 	}
 	

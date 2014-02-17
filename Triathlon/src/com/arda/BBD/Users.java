@@ -11,9 +11,10 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.Toast;
 /**
  * 
- * @author Daniel 
+ * @author daamca	
  *
  */
 public class Users{
@@ -49,7 +50,7 @@ public class Users{
 	/**
 	 * Este metodo abre la base de datos.
 	 * @author daamca
-	 * @return
+	 * @return estadoBD
 	 */
 	public boolean abrirBd(){
 		//Abre la base de datos para escribir.
@@ -72,9 +73,10 @@ public class Users{
 	
 	/**
 	 El siguiente metodo devuelve true o false si el usuario esta en la base de datos y se logea correctamente.
+	 *@author daamca
 	 * @param usuario
 	 * @param contraseña
-	 * @return
+	 * @return estadoLogeo
 	 */
 	public boolean logeo(String usuario,String contraseña){
 		
@@ -115,7 +117,8 @@ public class Users{
 	}
 	
 	/**
-	 * El siguiente metodo inserta en la base de datos los datos.
+	 * El siguiente metodo inserta  un usuario en la base de datos Users.
+	 * @author daamca
 	 * @param USUARIO
 	 * @param CONTRASEÑA
 	 * @param NOMBRE
@@ -125,7 +128,7 @@ public class Users{
 	 * @param SEXO
 	 * @param FOTO
 	 */
- public int crearEntrada(String USUARIO, String CONTRASEÑA,String NOMBRE,String FECHA, boolean ENTRENADOR,boolean DEPORTISTA,boolean SEXO/*,byte[] FOTO*/) {
+ public int crearEntrada(String USUARIO, String CONTRASEÑA,String NOMBRE,String FECHA, boolean ENTRENADOR,boolean DEPORTISTA,boolean SEXO,String FOTO) {
 		//Metodo para insertar en la base de datos .Debo realizar un switch con 0 insertado,1 usuario repetido,2 otros fallos.Que devuelva 
 		//Meterlo dentro de un try catch.
 		//El siguiente metodo devuelve un int en función de si se ha insertado o no. Este metodo inserta en la base de datos los datos.
@@ -141,7 +144,7 @@ public class Users{
 		cv.put(ID_ENTRENADOR,ENTRENADOR);
 		cv.put(ID_DEPORTISTA,DEPORTISTA);
 		cv.put(ID_SEXO,SEXO);
-		//cv.put(ID_FOTO,FOTO);
+		cv.put(ID_FOTO,FOTO);
 		nBD.insert(N_TABLA, null, cv);
 		nBD.close();
 		return estado;
@@ -154,10 +157,83 @@ public class Users{
 		}
 		
 	}
+ 
+ /**
+  * Este metodo sirve para modificar los datos de un usuario de la tabla Users.
+  * @author daamca
+  * @param USUARIO
+  * @param CONTRASEÑA
+  * @param NOMBRE
+  * @param FECHA
+  * @param ENTRENADOR
+  * @param DEPORTISTA
+  * @param SEXO
+  * @param FOTO
+ *  
+  *
+  */
+ public  void modificarEntrada(String USUARIO, String CONTRASEÑA,String NOMBRE,String FECHA, boolean ENTRENADOR,boolean DEPORTISTA,boolean SEXO,String FOTO) {
+		
+		
+		try {
+		nBD=db1.getWritableDatabase();
+		ContentValues cv = new ContentValues();
+		//Aqui mediante el metodo put del ContentValues insertamos los campos(ID,Valor)
+		//cv.put(ID_USER,USUARIO);
+		cv.put(ID_CONTRA,CONTRASEÑA);
+		cv.put(ID_NOMBRE,NOMBRE);
+		cv.put(ID_FECHA,FECHA);
+		cv.put(ID_ENTRENADOR,ENTRENADOR);
+		cv.put(ID_DEPORTISTA,DEPORTISTA);
+		cv.put(ID_SEXO,SEXO);
+		cv.put(ID_FOTO,FOTO);
+		nBD.update(N_TABLA, cv, ID_USER+"=?", new String []{String.valueOf(ID_USER)});
+		nBD.close();
+		
+		}catch(SQLiteException e){
+			Toast adver3 = Toast.makeText(null,"El usuario no ha podido moficarse.Intentelo de nuevo.", Toast.LENGTH_LONG);
+			 
+	        adver3.show();
+		}
+		
+	}
+ 
+ 
+ 
+ 
+ 
+ /**
+  * Este metodo devuelve el id de las fotografías del perfil del usuario. 
+  * @author daamca
+  * @param usuario
+  * @return idFoto
+  */
+ 
+ public String idFoto(String usuario){
+	nBD=db1.getReadableDatabase();
+	
+	Cursor c= nBD.rawQuery("SELECT IDFOTO  from Users where IDUSER='"+usuario+"' LIMIT 1;",new String [] {});
+	String idFoto=c.getString(0);
+	nBD.close();
+	
+	if(idFoto.isEmpty()==true){
+		Toast adver1 = Toast.makeText(null,"El usuario no dispone de fotografía de perfil.Introduzca una foto.", Toast.LENGTH_LONG);
+	 
+	        adver1.show();
+	}else {
+		Toast adver2 = Toast.makeText(null,"El usuario ya dispone de fotografia de perfil.", Toast.LENGTH_LONG);
+		 
+        adver2.show();
+	}
+	 
+	 return idFoto;
+	 
+ }
 	/**
 	 * Este metodo esta comprobando si el usuario está repetido. 
-	 * @param daamca
-	 * @return
+	 * @author daamca
+	 * @param USUARIO
+	 * @return estado
 	 */
 	 public boolean userBis(String USUARIO) {
 		 //Aqui instanciamos al metodo getReadableDatabase,este metodo abre la base de datos para lectura.
