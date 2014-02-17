@@ -20,10 +20,10 @@ public class tasuketeLogin extends Activity {
         super.onCreate(savedInstance);
         Users u = new Users();
         Intent i = this.getIntent();
-        String nombre = i.getStringExtra("User");
-        String apellidos = i.getStringExtra("Pass");
+        String User = i.getStringExtra("User");
+        String Pass = i.getStringExtra("Pass");
         Intent iOut = new Intent(tasuketeLogin.this, login.class);
-        iOut.putExtra("Res", /*u.logeo(nombre, apellidos)*/false);       
+        iOut.putExtra("Res", u.logeo(User, Pass));       
         setResult(Activity.RESULT_OK, iOut);
         tasuketeLogin.this.finish();
         
