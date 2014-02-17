@@ -2,7 +2,7 @@ package com.arda.screens;
 
 import com.arda.BBD.Users;
 import com.arda.BBD.crearBD;
-import com.arda.tasukete.tasuketeLogin;
+import com.arda.tasukete.TasuketeLogin;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -15,7 +15,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class login extends Activity {
+public class Login extends Activity {
 EditText etUser;
 EditText etPass;
 Button bLogin;
@@ -32,7 +32,7 @@ Button bRegister;//Decir a josu que ponga pass como id del bPass;
 			 
             @Override
             public void onClick(View v) {
-            	Intent i = new Intent(login.this, tasuketeLogin.class);
+            	Intent i = new Intent(Login.this, TasuketeLogin.class);
             		if(etUser.getText().toString().isEmpty())
             		{Toast toast = Toast.makeText(getApplicationContext(), "Fail", Toast.LENGTH_SHORT);
             		toast.show();
@@ -57,7 +57,7 @@ Button bRegister;//Decir a josu que ponga pass como id del bPass;
 			 
             @Override
             public void onClick(View v) {
-            	Intent i = new Intent(login.this, registro.class);
+            	Intent i = new Intent(Login.this, Registro.class);
             	startActivity(i);
             			
             		
