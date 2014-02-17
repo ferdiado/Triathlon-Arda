@@ -10,7 +10,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class crearBD extends SQLiteOpenHelper{
 
-		public static final String N_BD = "BD_arda";
+		public static final String N_BD = "BD_arda.db";
 	
 	// Parametros tabla Users
 		
@@ -55,6 +55,8 @@ public class crearBD extends SQLiteOpenHelper{
             CursorFactory factory, int version) {
 		super(contexto,nombre,factory,version);
 		// TODO Auto-generated constructor stub
+		
+		
 	}
 	
 	@Override // Solo se va a llamar la primera vez que se crea la base de datos . Si esta ya creada, lo salta.

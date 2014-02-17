@@ -33,7 +33,7 @@ public class Users{
 	
 	//nombre de la base de datos
 	// final para que no cambie la base de datos
-	private static final String N_BD = "BD_arda"; 
+	private static final String N_BD = "BD_arda.db"; 
 	
 	//nombre de la tabla a seleccionar
 	private static final String N_TABLA = "Users";
