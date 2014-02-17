@@ -88,4 +88,8 @@
 		    <string name="aceptarregistro">aceptar</string>
 		    <string name="cancelarregistro">Cancelar</string>
 		    <string name="insertDistancia">Distancia recorrida</string>
+		    <string name="btn_sesiones">Sesiones</string>
+		    <string name="btn_competiciones">Competiciones</string>
+		    <string name="labelTituloGesSesi">Gestion Sesiones</string>
+		    <string name="labelTituloGesDepor">Gestion Deportista</string>
 </resources>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:id="@+id/LinearLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_weight="0.12"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:text="@string/labelTituloGesDepor"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="35sp" />
+
+        <ImageButton
+            android:id="@+id/imageButton1"
+            android:layout_width="133dp"
+            android:layout_height="126dp"
+            android:layout_gravity="center"
+            android:src="@drawable/btn_anadir" />
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="133dp"
+            android:layout_height="126dp"
+            android:layout_gravity="center"
+            android:src="@drawable/btn_modificar" />
+
+        <ImageButton
+            android:id="@+id/imageButton3"
+            android:layout_width="133dp"
+            android:layout_height="126dp"
+            android:layout_gravity="center"
+            android:src="@drawable/btn_eliminar" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/LinearLayout2"
+        android:layout_width="208dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="0.13"
+        android:gravity="center"
+        android:orientation="vertical" >
+        <TextView android:id="@+id/textView1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="30dp" android:text="@string/labelTituloGesSesi" android:textAppearance="?android:attr/textAppearanceLarge" android:textSize="35sp"/>
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="265dp"
+            android:layout_height="75dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:text="@string/btn_sesiones"
+            android:textColor="#ffffff"
+            android:textSize="35sp" />
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="wrap_content"
+            android:layout_height="75dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:text="@string/btn_competiciones"
+            android:textColor="#ffffff"
+            android:textSize="35sp" />
+
+    </LinearLayout>
+
+</LinearLayout>
