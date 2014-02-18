@@ -155,7 +155,7 @@ public class Users{
 	 * @param SEXO
 	 * @param FOTO
 	 */
- public boolean crearEntrada(String USUARIO, String CONTRASEÑA,String NOMBRE,String FECHA ,boolean ENTRENADOR,boolean DEPORTISTA,boolean SEXO,String FOTO) {
+ public int crearEntrada(String USUARIO, String CONTRASEÑA,String NOMBRE,String FECHA ,boolean ENTRENADOR,boolean DEPORTISTA,boolean SEXO,String FOTO) {
 		//Metodo para insertar en la base de datos .Debo realizar un switch con 0 insertado,1 usuario repetido,2 otros fallos.Que devuelva 
 		//Meterlo dentro de un try catch.
 		//El siguiente metodo devuelve un int en función de si se ha insertado o no. Este metodo inserta en la base de datos los datos.
@@ -176,13 +176,13 @@ public class Users{
 		nBD.insert( N_TABLA, null, cv);
 		nBD.close();
 		
-		return true;	
+		return estado=0;	
 		
 		}catch(SQLiteException e){
 			if(userBis(USUARIO)==true){
-				return false;
+				return estado=1;
 			}else {
-				return false;
+				return estado=2;
 			}
 		}
 		
