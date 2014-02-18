@@ -18,7 +18,7 @@ import android.widget.Toast;
 public class TasuketeLogin extends Activity {
 	public void onCreate(Bundle savedInstance ){
         super.onCreate(savedInstance);
-        Users u = new Users();
+        Users u = new Users(getApplicationContext());
         Intent i = this.getIntent();
         String User = i.getStringExtra("User");
         String Pass = i.getStringExtra("Pass");

@@ -20,7 +20,7 @@ public class TasuketeRegistro extends Activity {
 	public void onCreate(Bundle savedInstance ){
         super.onCreate(savedInstance);
         Intent i = this.getIntent();
-        Users u = new Users();
+        Users u = new Users(getApplicationContext());
         String User = i.getStringExtra("IDus");
         String Pass = i.getStringExtra("Pwrd");
         String Nombre1 = i.getStringExtra("Nomb");
@@ -30,7 +30,7 @@ public class TasuketeRegistro extends Activity {
         //String Nombre = Nombre1+" "+Apellido1+" "+Apellido2;
         Boolean Sexo = i.getBooleanExtra("Sexo", false);      
         Intent iOut = new Intent(TasuketeRegistro.this, Registro.class);
-        iOut.putExtra("Reg", u.crearEntrada("pepe", "123", "pepe", "1994-12-12", true, false, true,"pepe"));       
+        iOut.putExtra("Reg", u.crearEntrada("pepe", "123", "pepe asd asd", "1994-12-12", true, false, true," sa.png"));       
         setResult(Activity.RESULT_OK, iOut);
         TasuketeRegistro.this.finish();
     }
