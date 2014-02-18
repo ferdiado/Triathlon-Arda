@@ -11,7 +11,7 @@ import android.view.Menu;
  * @author FADAD
  *
  */
-public class controlTiempos extends Activity{
+public class ControlTiempos extends Activity{
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

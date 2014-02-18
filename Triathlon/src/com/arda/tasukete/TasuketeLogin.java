@@ -1,7 +1,7 @@
 package com.arda.tasukete;
 
 
-import com.arda.screens.login;
+import com.arda.screens.Login;
 import com.arda.BBD.Users;
 import android.app.Activity;
 import android.content.Intent;
@@ -15,17 +15,19 @@ import android.widget.Toast;
  * 
  *
  */
-public class tasuketeLogin extends Activity {
+public class TasuketeLogin extends Activity {
 	public void onCreate(Bundle savedInstance ){
         super.onCreate(savedInstance);
-        Users u = new Users();
+        Users u = new Users(getApplicationContext());
         Intent i = this.getIntent();
         String User = i.getStringExtra("User");
         String Pass = i.getStringExtra("Pass");
-        Intent iOut = new Intent(tasuketeLogin.this, login.class);
-        iOut.putExtra("Res", u.logeo(User, Pass));       
+        Intent iOut = new Intent(TasuketeLogin.this, Login.class);
+        u.abrirBd();
+        iOut.putExtra("Res", u.logeo(User, Pass));   
+        u.cerrar();
         setResult(Activity.RESULT_OK, iOut);
-        tasuketeLogin.this.finish();
+        TasuketeLogin.this.finish();
         
     }
 	

@@ -1,7 +1,7 @@
 package com.arda.screens;
 
-import com.arda.tasukete.tasuketeLogin;
-import com.arda.tasukete.tasuketeRegistro;
+import com.arda.tasukete.TasuketeLogin;
+import com.arda.tasukete.TasuketeRegistro;
 
 import android.os.Bundle;
 import android.os.SystemClock;
@@ -16,7 +16,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
-public class registro extends Activity {
+public class Registro extends Activity {
 Button bAceptar;
 Button bCancelar;
 EditText etUser;
@@ -46,7 +46,7 @@ RadioButton rbMujer;
 			 
             @Override
             public void onClick(View v) {
-            	Intent i = new Intent(registro.this, tasuketeRegistro.class);
+            	Intent i = new Intent(Registro.this, TasuketeRegistro.class);
         		if(etUser.getText().toString().isEmpty())
         		{Toast toast = Toast.makeText(getApplicationContext(), "User no puede esta vacio", Toast.LENGTH_SHORT);
         		toast.show();
@@ -93,7 +93,7 @@ RadioButton rbMujer;
 			 
             @Override
             public void onClick(View v) {
-            	Intent i = new Intent(registro.this, login.class);
+            	Intent i = new Intent(Registro.this, Login.class);
             	startActivity(i);            			        		
          		
             }
@@ -111,7 +111,7 @@ RadioButton rbMujer;
 			    	case 0:
 				 		Toast toast1 = Toast.makeText(context, "Registro Completo. Volviendo a la pantalla de login", duration);
 				 		toast1.show();				 		
-				 		registro.this.finish();
+				 		Registro.this.finish();
 				 		break;
 			    	case 1:
 			    		Toast toast2 = Toast.makeText(context, "Error en el registro. Usuario ya establecido", duration);

@@ -1,8 +1,8 @@
 package com.arda.tasukete;
 
 
-import com.arda.screens.login;
-import com.arda.screens.registro;
+import com.arda.screens.Login;
+import com.arda.screens.Registro;
 import com.arda.BBD.Users;
 
 import android.app.Activity;
@@ -16,23 +16,25 @@ import android.widget.Toast;
  * 
  *
  */
-public class tasuketeRegistro extends Activity {
+public class TasuketeRegistro extends Activity {
 	public void onCreate(Bundle savedInstance ){
         super.onCreate(savedInstance);
         Intent i = this.getIntent();
-        Users u = new Users();
+        Users u = new Users(getApplicationContext());
         String User = i.getStringExtra("IDus");
         String Pass = i.getStringExtra("Pwrd");
         String Nombre1 = i.getStringExtra("Nomb");
         String Fecha = i.getStringExtra("Fech");
         String Apellido1 = i.getStringExtra("Ape1");
         String Apellido2 = i.getStringExtra("Ape2");
-        //String Nombre = Nombre1+" "+Apellido1+" "+Apellido2;
+        String Nombre = Nombre1+" "+Apellido1+" "+Apellido2;
         Boolean Sexo = i.getBooleanExtra("Sexo", false);      
-        Intent iOut = new Intent(tasuketeRegistro.this, registro.class);
-        iOut.putExtra("Reg", u.crearEntrada("pepe", "123", "pepe", "1994-12-12", true, false, true,"pepe"));       
+        Intent iOut = new Intent(TasuketeRegistro.this, Registro.class);
+        u.abrirBd();
+        iOut.putExtra("Reg", u.crearEntrada(User, Pass, Nombre, Fecha, true, false, Sexo, "sa.png"));
+        u.cerrar();
         setResult(Activity.RESULT_OK, iOut);
-        tasuketeRegistro.this.finish();
+        TasuketeRegistro.this.finish();
     }
 	
 	

@@ -10,8 +10,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class crearBD extends SQLiteOpenHelper{
 
-		public static final String N_BD = "BD_arda.db";
-	
+		public static final String N_BD = "BD_arda";
+		private static final int VERSION = 3;
 	// Parametros tabla Users
 		
 		public static final String ID_USER = "IDUSER";
@@ -39,6 +39,17 @@ public class crearBD extends SQLiteOpenHelper{
 		
 		
 		
+		public final String __tabla__ = "Universitario";
+		public final String __campo_id = "id";
+		public final String __campo_nombre = "Nombre";
+		public final String __campo_fechanac = "FechaNac";
+		public final String __campo_pais = "Pais";
+		public final String __campo_sexo = "Sexo";
+		public final String __campo_ingles = "Ingles";
+		
+		
+		
+		
 	//Parametros de tabla Im_se
 		public static final String IDSESION="IDSESION";
 		public static final String IDUSER="IDUSER";
@@ -51,12 +62,18 @@ public class crearBD extends SQLiteOpenHelper{
 		public static final String DISCAR="DISCAR";
 		public static final String DISCI="DISCAR";
 		
-	public crearBD(Context contexto, String nombre,
-            CursorFactory factory, int version) {
-		super(contexto,nombre,factory,version);
+		
+		public String sql1="CREATE TABLE Users (IDUSER     VARCHAR PRIMARY KEY,CONTRA     VARCHAR,NOMBRE     VARCHAR,FECHA      DATE,ENTRENADOR BOOLEAN,DEPORTISTA BOOLEAN,SEXO       BOOLEAN,FOTO       VARCHAR );";
+	    public String sql2="CREATE TABLE Tiempos ( IDUSER    VARCHAR  PRIMARY KEY REFERENCES Users ( IDUSER ) ON DELETE CASCADE ON UPDATE CASCADE,MODO      VARCHAR,TPOFORMAT DATETIME,PRUEBA    VARCHAR,DISREC    VARCHAR,VELOCIDAD INTEGER,IDSESION  INTEGER  REFERENCES Im_Se ( IDSESION ) ON DELETE CASCADE ON UPDATE CASCADE );";
+		public String sql3="CREATE TABLE TIPOSCOMP ( IDCOM  VARCHAR PRIMARY KEY,DISNAT VARCHAR,DISCAR VARCHAR,DISCI  VARCHAR );";
+		public String sql4="CREATE TABLE Im_Se (IDSESION INTEGER PRIMARY KEY AUTOINCREMENT,IDUSER   VARCHAR REFERENCES Users ( IDUSER ),IDFOTO   VARCHAR);";
+		
+		
+		
+		
+		public crearBD(Context contexto) {
+		super(contexto,N_BD,null,VERSION);
 		// TODO Auto-generated constructor stub
-		
-		
 	}
 	
 	@Override // Solo se va a llamar la primera vez que se crea la base de datos . Si esta ya creada, lo salta.
@@ -66,37 +83,10 @@ public class crearBD extends SQLiteOpenHelper{
 		// Creamos tabla  
 		
 		
-		db.execSQL("CREATE TABLE"+N_TABLA1+"(" + 
-			    ID_USER+ "VARCHAR PRIMARY KEY, "+
-			    ID_CONTRA+"    INTEGER,"+
-			    ID_NOMBRE+" VARCHAR,"+
-			    ID_NOMBRE+"    VARCHAR,"+
-			    ID_FECHA+"     DATE," +
-			    ID_ENTRENADOR+" BOOLEAN," +
-			    ID_DEPORTISTA+" BOOLEAN,"+
-			    ID_SEXO+" BOOLEAN,"+
-			   ID_FOTO+"  VARCHAR );");
-		
-		db.execSQL("CREATE TABLE"+N_TABLA2+"("+ 
-			    ID_USER+  "  VARCHAR  PRIMARY KEY, "+
-				
-                "REFERENCES Users ( IDUSER ) ON DELETE CASCADE"+
-                                            "ON UPDATE CASCADE,"+
-                MODO+"      VARCHAR, "+
-                TPOFOR+" DATETIME,"+
-                PRUEBA+"    VARCHAR,"+
-                DISREC+"    VARCHAR,"+
-                VELOCIDAD+" INTEGER );");
-		
-		db.execSQL("CREATE TABLE"+N_TABLA3+"("+ 
-				IDSESION + "INTEGER PRIMARY KEY AUTOINCREMENT,"+
-				IDUSER+"   VARCHAR REFERENCES Users ( IDUSER ),"+
-				IDFOTO+"   VARCHAR );");
-		db.execSQL("CREATE TABLE"+N_TABLA4+"("+ 
-				IDCOM + "VARCHAR PRIMARY KEY,"+
-				DISNAT+"   VARCHAR,"+
-				DISCAR+"   VARCHAR,"+
-				DISCI+"   VARCHAR );");
+		db.execSQL(sql1);
+		db.execSQL(sql2);
+		db.execSQL(sql3);
+		db.execSQL(sql4);
 		
 	}
 	
@@ -105,7 +95,7 @@ public class crearBD extends SQLiteOpenHelper{
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 		// TODO Auto-generated method stub
 		db.execSQL("DROP TABLE IF EXISTS "+ N_TABLA1);
-		db.execSQL("DROP TABLE IF EXISTS "+ N_TABLA2);
+		//db.execSQL("DROP TABLE IF EXISTS "+ N_TABLA2);
 		onCreate(db);
 		
 	}
