@@ -37,19 +37,7 @@ public class crearBD extends SQLiteOpenHelper{
 		private static final String N_TABLA3 = "Im_Se";
 		private static final String N_TABLA4 = "TIPOSCOMP";
 		
-		
-		
-		public final String __tabla__ = "Universitario";
-		public final String __campo_id = "id";
-		public final String __campo_nombre = "Nombre";
-		public final String __campo_fechanac = "FechaNac";
-		public final String __campo_pais = "Pais";
-		public final String __campo_sexo = "Sexo";
-		public final String __campo_ingles = "Ingles";
-		
-		
-		
-		
+	
 	//Parametros de tabla Im_se
 		public static final String IDSESION="IDSESION";
 		public static final String IDUSER="IDUSER";
@@ -63,12 +51,15 @@ public class crearBD extends SQLiteOpenHelper{
 		public static final String DISCI="DISCAR";
 		
 		
+
+		
 		public String sql1="CREATE TABLE Users (IDUSER     VARCHAR PRIMARY KEY,CONTRA     VARCHAR,NOMBRE     VARCHAR,FECHA      DATE,ENTRENADOR BOOLEAN,DEPORTISTA BOOLEAN,SEXO       BOOLEAN,FOTO       VARCHAR );";
 	    public String sql2="CREATE TABLE Tiempos ( IDUSER    VARCHAR  PRIMARY KEY REFERENCES Users ( IDUSER ) ON DELETE CASCADE ON UPDATE CASCADE,MODO      VARCHAR,TPOFORMAT DATETIME,PRUEBA    VARCHAR,DISREC    VARCHAR,VELOCIDAD INTEGER,IDSESION  INTEGER  REFERENCES Im_Se ( IDSESION ) ON DELETE CASCADE ON UPDATE CASCADE );";
-		public String sql3="CREATE TABLE TIPOSCOMP ( IDCOM  VARCHAR PRIMARY KEY,DISNAT VARCHAR,DISCAR VARCHAR,DISCI  VARCHAR );";
+		//public String sql3="CREATE TABLE TIPOSCOMP ( IDCOM  VARCHAR PRIMARY KEY,DISNAT VARCHAR,DISCAR VARCHAR,DISCI  VARCHAR );";
+
 		public String sql4="CREATE TABLE Im_Se (IDSESION INTEGER PRIMARY KEY AUTOINCREMENT,IDUSER   VARCHAR REFERENCES Users ( IDUSER ),IDFOTO   VARCHAR);";
-		
-		
+		public String sql5="INSERT INTO Users (IDUSER,CONTRA,NOMBRE,FECHA,ENTRENADOR,DEPORTISTA,SEXO,FOTO)VALUES('ENTRENADOR','1234','2000-10-20',NULL,false,true,'entrenador.png');";
+		public String sql6="INSERT INTO Users (IDUSER,CONTRA,NOMBRE,FECHA,ENTRENADOR,DEPORTISTA,SEXO,FOTO)VALUES('DEPOR1','1234','2000-10-20','ENTRENADOR',true,true,'entrenador.png');";
 		
 		
 		public crearBD(Context contexto) {
@@ -85,8 +76,10 @@ public class crearBD extends SQLiteOpenHelper{
 		
 		db.execSQL(sql1);
 		db.execSQL(sql2);
-		db.execSQL(sql3);
+		//db.execSQL(sql3);
 		db.execSQL(sql4);
+		db.execSQL(sql5);
+		db.execSQL(sql6);
 		
 	}
 	

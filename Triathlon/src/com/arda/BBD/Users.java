@@ -1,6 +1,8 @@
 package com.arda.BBD;
 
 import java.sql.Blob;
+import java.sql.Date;
+import java.util.ArrayList;
 
 import org.apache.http.util.ByteArrayBuffer;
 
@@ -35,6 +37,7 @@ public class Users{
 	public static final String  ID_DEPORTISTA = "DEPORTISTA";
 	public static final String  ID_SEXO = "SEXO";
 	public static final String ID_FOTO = "FOTO";
+	public static final String FECHABAJA= "FECHABAJA";
 	
 	//nombre de la base de datos
 	// final para que no cambie la base de datos
@@ -48,6 +51,8 @@ public class Users{
 	private SQLiteDatabase nBD;
 	private Context nContexto;
 	public String  user;
+	public String idFoto;
+	public String userBis;
 	
 	//nombre de la base de datos sqlit
 	
@@ -172,6 +177,7 @@ public class Users{
 		cv.put(ID_DEPORTISTA, DEPORTISTA);
 		cv.put(ID_SEXO, SEXO);
 		cv.put(ID_FOTO,FOTO);
+	
 		
 		nBD.insert( N_TABLA, null, cv);
 		nBD.close();
@@ -241,9 +247,16 @@ public class Users{
  
  public String idFoto(String usuario){
 	//nBD=db1.getReadableDatabase();
-	
-	Cursor c= nBD.rawQuery("SELECT IDFOTO  from Users where IDUSER='"+usuario+"' LIMIT 1;",new String [] {});
-	String idFoto=c.getString(0);
+	 String[] args = new String[] {usuario};
+	Cursor c= nBD.rawQuery("SELECT IDFOTO  from Users where IDUSER=? LIMIT 1;",args);
+	if (c.moveToFirst()) {
+	     //Recorremos el cursor hasta que no haya más registros
+	     do {
+	    	  idFoto= c.getString(0);
+	          
+	     } while(c.moveToNext());
+	}
+
 	nBD.close();
 	
 	if(idFoto.isEmpty()){
@@ -269,10 +282,20 @@ public class Users{
 		 //Aqui instanciamos al metodo getReadableDatabase,este metodo abre la base de datos para lectura.
 		// nBD=db1.getReadableDatabase();
 		
-			Cursor c= nBD.rawQuery("SELECT IDUSER  from Users where IDUSER='"+USUARIO+"' LIMIT 1;", new String [] {});
-			String iduser =c.getString(0);
+		 
+		 String[] args = new String[] {USUARIO};
+			Cursor c= nBD.rawQuery("SELECT IDUSER  from Users where IDUSER=? LIMIT 1;", args);
+			
+			if (c.moveToFirst()) {
+			     //Recorremos el cursor hasta que no haya más registros
+			     do {
+			    	 userBis= c.getString(0);
+			          
+			     } while(c.moveToNext());
+			}
+			
 			nBD.close();	
-			if(iduser.equals(USUARIO)){
+			if(userBis.equals(USUARIO)){
 				
 				return true;
 			}else{
@@ -280,6 +303,33 @@ public class Users{
 			}
 		
 	    }
+
+	 /**
+	  * Este método devuelve un ArrayList con todos los deportistas en base a un entrenador. 
+	  * @param entrenador
+	  * @return iduser(deportistas)
+	  */
+	 public ArrayList<String> numeroDeportistas(String entrenador){
+		ArrayList<String> resultados= null;
+		 String[] args = new String[] {entrenador};
+			Cursor c= nBD.rawQuery("SELECT IDUSER  from Users where ENTRENADOR=?;", args);
+		 
+			if (c.moveToFirst()) {
+				resultados = new ArrayList<String>();
+				
+			     //Recorremos el cursor hasta que no haya más registros
+			      while(c.isAfterLast()){
+			    	 String resultado= c.getString(0);
+			    	  resultados.add(resultado);
+			    	 c.moveToNext();
+			     };
+			}
+		 c.close();
+		 nBD.close();
+		 return resultados;
+		 
+		 
+	 }
 	
 
 
