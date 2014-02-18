@@ -3,6 +3,10 @@ package com.arda.BBD;
 import java.sql.Blob;
 
 import org.apache.http.util.ByteArrayBuffer;
+
+
+
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -11,6 +15,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 import android.widget.Toast;
 /**
  * 
@@ -33,40 +38,46 @@ public class Users{
 	
 	//nombre de la base de datos
 	// final para que no cambie la base de datos
-	private static final String N_BD = "BD_arda.db"; 
+	private static final String N_BD = "BD_arda"; 
 	
 	//nombre de la tabla a seleccionar
 	private static final String N_TABLA = "Users";
 	
+	private crearBD db1;
+	
 	private SQLiteDatabase nBD;
 	private Context nContexto;
-	
+	public String  user;
 	
 	//nombre de la base de datos sqlit
-	//private SQLiteDatabase nBD;
 	
-	crearBD db1= new crearBD (nContexto,crearBD.N_BD, null,1);//Creamos la base de datos.
+	
+	public Users(Context context){
+		
+		db1=new crearBD(context);
+		
+	}
 	
 	/**
 	 * Este metodo abre la base de datos.
 	 * @author daamca
-	 * @return estadoBD
 	 */
-	public boolean abrirBd(){
+	public void abrirBd(){
 		//Abre la base de datos para escribir.
+		//Log.i("SQLite", "Se abre conexion a la base de datos " + db1.getDatabaseName() );
 		 nBD= db1.getWritableDatabase();
 		 
-		 //Comprueba si la base de datos es nula o no.
+		 /*//Comprueba si la base de datos es nula o no.
 		 if (nBD!=null){
 			 return true;
 		 }else {
 			 return false;
-		 		}
+		 		}*/
 	}
 	
 	//Metodo que cierra la base de datos al completo
 	public void cerrar() {
-		
+		//Log.i("SQLite", "Se cierra conexion a la base de datos " + db1.getDatabaseName() );
 		nBD.close();
 	
 	}
@@ -78,43 +89,59 @@ public class Users{
 	 * @param contraseña
 	 * @return estadoLogeo
 	 */
+	
+	
+	
 	public boolean logeo(String usuario,String contraseña){
 		
-		Cursor cur1 = null;
-		Cursor cur2 =null;
+		String[] args;
+		String[] args1;
+		  String user="";
+		  String contra="";
 		try{
-			nBD=db1.getReadableDatabase();
-		 cur1=nBD.rawQuery("SELECT IDUSER from Users where IDUSER='"+usuario+"'LIMIT 1;", new String [] {});
-		 cur2=nBD.rawQuery("SELECT CONTRA from Users where CONTRA='"+contraseña+"'LIMIT 1;", new String [] {});
-		nBD.close();
+			
+			 args = new String[] {usuario};
+			 args1=new String[]{contraseña};
+			
+				Cursor c=nBD.rawQuery("SELECT IDUSER from Users where IDUSER=? LIMIT 1;",args);
+				Cursor c2=nBD.rawQuery("SELECT CONTRA from Users where CONTRA=? LIMIT 1;",args1);
 		
-	
+				
+				//Nos aseguramos de que existe al menos un registro
+				if (c.moveToFirst()) {
+				     //Recorremos el cursor hasta que no haya más registros
+				     do {
+				    	  user= c.getString(0);
+				          
+				     } while(c.moveToNext());
+				}
+				
+				//Nos aseguramos de que existe al menos un registro
+				if (c2.moveToFirst()) {
+				     //Recorremos el cursor hasta que no haya más registros
+				     do {
+				           contra= c2.getString(0);
+				          
+				     } while(c2.moveToNext());
+				}
 		}catch(SQLiteException e){
 			
 		}
-		//Comprueba si el cursor1 está vacio.
-		if (cur1.moveToFirst() == false){
-			   //el cursor está vacío
-			   return false;
-			}
-		//Comprueba si el cursor2 esta vacio
-		if (cur2.moveToFirst() == false){
-			   //el cursor está vacío
-			   return false;
-			}
 		
-		String name = cur1.getString(0);
-		String contra =cur2.getString(0);
 		
-		//Esto compruba el user y la contra y devuelve falso o verdadero
-		if(name.equalsIgnoreCase(usuario) && contra.equalsIgnoreCase(contra)){
-				return false;
-			}else {
+		
+		
+		
+		
+		
+		if(user.equalsIgnoreCase(usuario) && contra.equalsIgnoreCase(contraseña)){
 				return true;
+			}else {
+				return false;
 			}
 		
 		
-	}
+	} 
 	
 	/**
 	 * El siguiente metodo inserta  un usuario en la base de datos Users.
@@ -128,31 +155,34 @@ public class Users{
 	 * @param SEXO
 	 * @param FOTO
 	 */
- public int crearEntrada(String USUARIO, String CONTRASEÑA,String NOMBRE,String FECHA, boolean ENTRENADOR,boolean DEPORTISTA,boolean SEXO,String FOTO) {
+ public boolean crearEntrada(String USUARIO, String CONTRASEÑA,String NOMBRE,String FECHA ,boolean ENTRENADOR,boolean DEPORTISTA,boolean SEXO,String FOTO) {
 		//Metodo para insertar en la base de datos .Debo realizar un switch con 0 insertado,1 usuario repetido,2 otros fallos.Que devuelva 
 		//Meterlo dentro de un try catch.
 		//El siguiente metodo devuelve un int en función de si se ha insertado o no. Este metodo inserta en la base de datos los datos.
 		int estado=0;
 		try {
-		nBD=db1.getWritableDatabase();
+		//nBD=db1.getWritableDatabase();
 		ContentValues cv = new ContentValues();
 		//Aqui mediante el metodo put del ContentValues insertamos los campos(ID,Valor)
 		cv.put(ID_USER,USUARIO);
 		cv.put(ID_CONTRA,CONTRASEÑA);
 		cv.put(ID_NOMBRE,NOMBRE);
-		cv.put(ID_FECHA,FECHA);
-		cv.put(ID_ENTRENADOR,ENTRENADOR);
-		cv.put(ID_DEPORTISTA,DEPORTISTA);
-		cv.put(ID_SEXO,SEXO);
+		cv.put(ID_FECHA, FECHA);
+		cv.put(ID_ENTRENADOR, ENTRENADOR);
+		cv.put(ID_DEPORTISTA, DEPORTISTA);
+		cv.put(ID_SEXO, SEXO);
 		cv.put(ID_FOTO,FOTO);
-		nBD.insert(N_TABLA, null, cv);
+		
+		nBD.insert( N_TABLA, null, cv);
 		nBD.close();
-		return estado;
+		
+		return true;	
+		
 		}catch(SQLiteException e){
 			if(userBis(USUARIO)==true){
-				return estado=1;
+				return false;
 			}else {
-				return estado=2;
+				return false;
 			}
 		}
 		
@@ -176,7 +206,7 @@ public class Users{
 		
 		
 		try {
-		nBD=db1.getWritableDatabase();
+		//nBD=db1.getWritableDatabase();
 		ContentValues cv = new ContentValues();
 		//Aqui mediante el metodo put del ContentValues insertamos los campos(ID,Valor)
 		//cv.put(ID_USER,USUARIO);
@@ -210,13 +240,13 @@ public class Users{
   */
  
  public String idFoto(String usuario){
-	nBD=db1.getReadableDatabase();
+	//nBD=db1.getReadableDatabase();
 	
 	Cursor c= nBD.rawQuery("SELECT IDFOTO  from Users where IDUSER='"+usuario+"' LIMIT 1;",new String [] {});
 	String idFoto=c.getString(0);
 	nBD.close();
 	
-	if(idFoto.isEmpty()==true){
+	if(idFoto.isEmpty()){
 		Toast adver1 = Toast.makeText(null,"El usuario no dispone de fotografía de perfil.Introduzca una foto.", Toast.LENGTH_LONG);
 	 
 	        adver1.show();
@@ -237,7 +267,7 @@ public class Users{
 	 */
 	 public boolean userBis(String USUARIO) {
 		 //Aqui instanciamos al metodo getReadableDatabase,este metodo abre la base de datos para lectura.
-		 nBD=db1.getReadableDatabase();
+		// nBD=db1.getReadableDatabase();
 		
 			Cursor c= nBD.rawQuery("SELECT IDUSER  from Users where IDUSER='"+USUARIO+"' LIMIT 1;", new String [] {});
 			String iduser =c.getString(0);
