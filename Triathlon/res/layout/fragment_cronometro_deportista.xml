@@ -2,69 +2,80 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal" >
-
-    <ImageView
-        android:id="@+id/imgDeportista"
-        android:layout_width="152dp"
-        android:layout_height="138dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/nousuario" />
+    android:orientation="vertical" >
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="138dp"
-        android:orientation="vertical" >
+        android:layout_height="152dp"
+        android:background="@drawable/marcofragment" >
 
-        <TextView
-            android:id="@+id/nomDeportista"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
-        <TextView
-            android:id="@+id/textCrono"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text=""
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+        <ImageView
+            android:id="@+id/imgDeportista"
+            android:layout_width="152dp"
+            android:layout_height="138dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/nousuario" />
 
         <LinearLayout
-            android:id="@+id/ControlesBotones"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:orientation="horizontal" >
+            android:layout_height="138dp"
+            android:orientation="vertical" >
 
-            <ImageButton
-                android:id="@+id/playBoton"
-                android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/nomDeportista"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <TextView
+                android:id="@+id/textCrono"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <LinearLayout
+                android:id="@+id/ControlesBotones"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_weight="0.47"
-                android:src="@drawable/ic_action_play" />
+                android:orientation="horizontal" >
 
-            <ImageButton
-                android:id="@+id/stopBoton"
-                android:layout_width="wrap_content"
+                <ImageButton
+                    android:id="@+id/playBoton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.47"
+                    android:src="@drawable/ic_action_play" />
+
+                <ImageButton
+                    android:id="@+id/stopBoton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.47"
+                    android:src="@drawable/ic_action_stop" />
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/insertDistanciaTotal"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:src="@drawable/ic_action_stop" />
+                android:hint="@string/insertDistancia"
+                android:inputType="numberDecimal"
+                android:textSize="12sp" />
         </LinearLayout>
 
-        <EditText
-            android:id="@+id/insertDistanciaTotal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/insertDistancia"
-            android:textSize="12sp"
-            android:inputType="numberDecimal" >
-
-            <requestFocus />
-        </EditText>
-
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/muestraTiempos"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/marcofragment"
+        android:gravity="center"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </LinearLayout>
