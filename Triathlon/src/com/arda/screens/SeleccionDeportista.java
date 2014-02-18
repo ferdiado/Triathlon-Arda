@@ -20,10 +20,12 @@ public class SeleccionDeportista extends Fragment{
 	ImageView IMG_deportista;
 	TextView nomDeportista;
 	
-	
+	/**
+	 * Metodo que construye el fragment del deportista.
+	 */
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         
-        // Unflem el Layout amb el fragment 1
+        //Obtenemos el fragment mediante un inflater.
 		View view = inflater.inflate(R.layout.fragment_deportista, container, false);
 		
 		Bundle bundle = this.getArguments();

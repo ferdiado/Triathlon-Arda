@@ -1,5 +1,7 @@
 package com.arda.tiempo;
 
+import com.arda.screens.TiempoDeportista;
+
 import android.widget.TextView;
 
 
@@ -42,7 +44,7 @@ public class MiHilo extends Thread {
 					cron = horas + " : " + minutos + " : " + segundos + " : " + centesimas;
 					handler.setHcron(cron); 
 					handler.act();   
-					this.sleep(9);
+					this.sleep(10);
 
 				} catch (Exception ex) { 
 					ex.printStackTrace();
