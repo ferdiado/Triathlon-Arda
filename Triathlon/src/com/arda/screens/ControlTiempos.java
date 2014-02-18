@@ -15,7 +15,7 @@ public class ControlTiempos extends Activity{
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		//setContentView(R.layout.);
+		setContentView(R.layout.activity_lista_deportistas);
 	}
 	
 	@Override

@@ -27,5 +27,8 @@
         <activity android:name="com.arda.tasukete.TasuketeLogin"></activity>
         <activity android:name="com.arda.tasukete.TasuketeRegistro"></activity>
         <activity android:name="com.arda.screens.Registro"></activity>
+        <activity android:name="com.arda.screens.Inicio"></activity>
+        <activity android:name="com.arda.screens.Gestion"></activity>
+        <activity android:name="com.arda.screens.ControlTiempos"></activity>
         </application>
 </manifest>

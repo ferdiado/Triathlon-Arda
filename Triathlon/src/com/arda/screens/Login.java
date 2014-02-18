@@ -84,11 +84,13 @@ Button bRegister;//Decir a josu que ponga pass como id del bPass;
 		    	if(data.getBooleanExtra("Res", false))
 		    	{
 
-			 		Toast toast = Toast.makeText(context, "GG", duration);
-			 		toast.show();  
+			 		Toast toast = Toast.makeText(context, "Bienvenido : "+etUser.getText().toString(), duration);
+			 		toast.show();
+			 		Intent i = new Intent(Login.this, Inicio.class);
+			 		startActivity(i);
 		    		
 		    	}else{
-		    		Toast toast = Toast.makeText(context, "BG", duration);
+		    		Toast toast = Toast.makeText(context, "Esa combinacion de usuario/contraseña no esta registrada. Vuelva a intentarlo.", duration);
 			 		toast.show(); 
 		    	}
        
