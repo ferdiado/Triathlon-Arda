@@ -27,10 +27,12 @@ public class TasuketeRegistro extends Activity {
         String Fecha = i.getStringExtra("Fech");
         String Apellido1 = i.getStringExtra("Ape1");
         String Apellido2 = i.getStringExtra("Ape2");
-        //String Nombre = Nombre1+" "+Apellido1+" "+Apellido2;
+        String Nombre = Nombre1+" "+Apellido1+" "+Apellido2;
         Boolean Sexo = i.getBooleanExtra("Sexo", false);      
         Intent iOut = new Intent(TasuketeRegistro.this, Registro.class);
-        iOut.putExtra("Reg", u.crearEntrada("pepe", "123", "pepe asd asd", "1994-12-12", true, false, true," sa.png"));       
+        u.abrirBd();
+        iOut.putExtra("Reg", u.crearEntrada(User, Pass, Nombre, Fecha, true, false, Sexo, "sa.png"));
+        u.cerrar();
         setResult(Activity.RESULT_OK, iOut);
         TasuketeRegistro.this.finish();
     }

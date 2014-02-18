@@ -23,7 +23,9 @@ public class TasuketeLogin extends Activity {
         String User = i.getStringExtra("User");
         String Pass = i.getStringExtra("Pass");
         Intent iOut = new Intent(TasuketeLogin.this, Login.class);
-        iOut.putExtra("Res", u.logeo(User, Pass));       
+        u.abrirBd();
+        iOut.putExtra("Res", u.logeo(User, Pass));   
+        u.cerrar();
         setResult(Activity.RESULT_OK, iOut);
         TasuketeLogin.this.finish();
         
