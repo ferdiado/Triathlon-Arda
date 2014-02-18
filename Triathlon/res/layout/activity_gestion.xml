@@ -20,7 +20,8 @@
             android:layout_marginTop="30dp"
             android:text="@string/labelTituloGesDepor"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textSize="35sp" />
+            android:textSize="35sp" 
+            android:typeface="serif"/>
 
         <ImageButton
             android:id="@+id/imageButton1"
@@ -49,32 +50,41 @@
         android:id="@+id/LinearLayout2"
         android:layout_width="208dp"
         android:layout_height="match_parent"
-        android:layout_gravity="center_vertical"
         android:layout_weight="0.13"
-        android:gravity="center"
         android:orientation="vertical" >
-        <TextView android:id="@+id/textView1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="30dp" android:text="@string/labelTituloGesSesi" android:textAppearance="?android:attr/textAppearanceLarge" android:textSize="35sp"/>
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:text="@string/labelTituloGesSesi"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="35sp" 
+            android:typeface="serif"/>
 
         <Button
             android:id="@+id/button4"
             android:layout_width="265dp"
             android:layout_height="75dp"
             android:layout_gravity="center"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="100dp"
+            android:background="#008080"
             android:text="@string/btn_sesiones"
             android:textColor="#ffffff"
             android:textSize="35sp" />
 
         <Button
             android:id="@+id/button5"
-            android:layout_width="wrap_content"
+            android:layout_width="265dp"
             android:layout_height="75dp"
             android:layout_gravity="center"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="50dp"
+            android:background="#008080"
             android:text="@string/btn_competiciones"
             android:textColor="#ffffff"
             android:textSize="35sp" />
-
     </LinearLayout>
 
 </LinearLayout>
