@@ -25,7 +25,7 @@ public class TiempoDeportista extends Fragment {
 	private OnMandaDatos DatosDeportista;
 	String nombreDeportista, img_deportista;
 	ImageView IMG_deportista;
-	TextView nomDeportista, textCronometro;
+	TextView nomDeportista, textCronometro, muestraTiempos;
 	ImageButton inicio, parar;
 	EditText distancia;
 	boolean play = true; 
@@ -52,6 +52,11 @@ public class TiempoDeportista extends Fragment {
         
 		textCronometro = (TextView) getActivity().findViewById(R.id.textCrono);
 		distancia = (EditText) getActivity().findViewById(R.id.insertDistanciaTotal);
+		
+		muestraTiempos = (TextView) getActivity().findViewById(R.id.muestraTiempos);
+		muestraTiempos.setLines(1);
+		muestraTiempos.setText("");
+				
 		distancia.setEnabled(false);
 		
 		mihilo = new MiHilo(textCronometro);
@@ -79,6 +84,8 @@ public class TiempoDeportista extends Fragment {
 					//Estamos en la opción pause del cronometro
 					inicio.setImageResource(R.drawable.ic_action_play);
 					mihilo.setPausado(true);
+					muestraTiempos.setLines(1);
+					textCronometro.getText();
 					play = true;
 					distancia.setEnabled(false);
 				}
