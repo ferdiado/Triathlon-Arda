@@ -159,7 +159,7 @@ public class Users{
 		//Metodo para insertar en la base de datos .Debo realizar un switch con 0 insertado,1 usuario repetido,2 otros fallos.Que devuelva 
 		//Meterlo dentro de un try catch.
 		//El siguiente metodo devuelve un int en función de si se ha insertado o no. Este metodo inserta en la base de datos los datos.
-		int estado=0;
+		int estado =0;
 		try {
 		//nBD=db1.getWritableDatabase();
 		ContentValues cv = new ContentValues();
