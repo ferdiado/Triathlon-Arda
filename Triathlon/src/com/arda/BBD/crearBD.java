@@ -58,8 +58,8 @@ public class crearBD extends SQLiteOpenHelper{
 		//public String sql3="CREATE TABLE TIPOSCOMP ( IDCOM  VARCHAR PRIMARY KEY,DISNAT VARCHAR,DISCAR VARCHAR,DISCI  VARCHAR );";
 
 		public String sql4="CREATE TABLE Im_Se (IDSESION INTEGER PRIMARY KEY AUTOINCREMENT,IDUSER   VARCHAR REFERENCES Users ( IDUSER ),IDFOTO   VARCHAR);";
-		public String sql5="INSERT INTO Users (IDUSER,CONTRA,NOMBRE,FECHA,ENTRENADOR,DEPORTISTA,SEXO,FOTO)VALUES('ENTRENADOR','1234','2000-10-20',NULL,false,true,'entrenador.png');";
-		public String sql6="INSERT INTO Users (IDUSER,CONTRA,NOMBRE,FECHA,ENTRENADOR,DEPORTISTA,SEXO,FOTO)VALUES('DEPOR1','1234','2000-10-20','ENTRENADOR',true,true,'entrenador.png');";
+		public String sql5="INSERT INTO Users (IDUSER,CONTRA,NOMBRE,FECHA,ENTRENADOR,DEPORTISTA,SEXO,FOTO,FECHABAJA)VALUES('ENTRENADOR','1234','entrene','2000-10-20',NULL,'false','true','entrenador.png',null);";
+		public String sql6="INSERT INTO Users (IDUSER,CONTRA,NOMBRE,FECHA,ENTRENADOR,DEPORTISTA,SEXO,FOTO,FECHABAJA)VALUES('DEPOR1','1234','DEPOR','2000-10-20','ENTRENADOR','false','true','depor.png',null);');";
 		
 		
 		public crearBD(Context contexto) {
@@ -75,11 +75,12 @@ public class crearBD extends SQLiteOpenHelper{
 		
 		
 		db.execSQL(sql1);
-		db.execSQL(sql2);
-		//db.execSQL(sql3);
-		db.execSQL(sql4);
 		db.execSQL(sql5);
 		db.execSQL(sql6);
+		db.execSQL(sql2);
+		
+		db.execSQL(sql4);
+		
 		
 	}
 	
