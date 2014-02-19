@@ -90,7 +90,9 @@
                 android:layout_height="wrap_content"
                 android:layout_alignBottom="@+id/textView6"
                 android:layout_alignLeft="@+id/editUsuario"
-                android:ems="10" android:inputType="text"/>
+                android:ems="10"
+                android:hint="10/10/2000"
+                android:inputType="date" />
 
             <EditText
                 android:id="@+id/editSegundoApellido"
