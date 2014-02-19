@@ -23,6 +23,7 @@ Button bRegister;//Decir a josu que ponga pass como id del bPass;
 	
 	protected void onStart(Bundle savedInstanceState) {
 		Users u = new Users(getApplicationContext());
+		
 	}
 	
 	protected void onCreate(Bundle savedInstanceState) {
@@ -38,14 +39,16 @@ Button bRegister;//Decir a josu que ponga pass como id del bPass;
             public void onClick(View v) {
             	Intent i = new Intent(Login.this, TasuketeLogin.class);
             		if(etUser.getText().toString().isEmpty())
-            		{Toast toast = Toast.makeText(getApplicationContext(), "Fail", Toast.LENGTH_SHORT);
+            		{Toast toast = Toast.makeText(getApplicationContext(), "Debes rellenar el campo de Usuario", Toast.LENGTH_SHORT);
             		toast.show();
             		}else{
             			if(etPass.getText().toString().isEmpty())
-            			{Toast toast = Toast.makeText(getApplicationContext(), "Fail", Toast.LENGTH_SHORT);
+            			{Toast toast = Toast.makeText(getApplicationContext(), "Debes rellenar el campo de Contraseña", Toast.LENGTH_SHORT);
                 		toast.show();
                 		}else{
-                			i.putExtra("User", etUser.getText().toString());
+                			String UserSTR = etUser.getText().toString();
+                			if(UserSTR.charAt(UserSTR.length()-1)==' '){UserSTR=UserSTR.substring(0, UserSTR.length()-1);}
+                			i.putExtra("User", UserSTR);
                     		i.putExtra("Pass", etPass.getText().toString());
                     		startActivityForResult(i, 1);
                 		}
@@ -90,7 +93,7 @@ Button bRegister;//Decir a josu que ponga pass como id del bPass;
 			 		startActivity(i);
 		    		
 		    	}else{
-		    		Toast toast = Toast.makeText(context, "Esa combinacion de usuario/contraseña no esta registrada. Vuelva a intentarlo.", duration);
+		    		Toast toast = Toast.makeText(context, "Esa combinacion de usuario/contraseña no esta registrada. Vuelva a intentarlo.", Toast.LENGTH_LONG);
 			 		toast.show(); 
 		    	}
        

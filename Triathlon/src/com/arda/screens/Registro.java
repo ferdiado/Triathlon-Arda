@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
@@ -27,6 +28,8 @@ EditText etApellido2;
 EditText etNombre;
 RadioButton rbHombre;
 RadioButton rbMujer;
+CheckBox chEntrenador;
+CheckBox chDeportista;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +43,8 @@ RadioButton rbMujer;
 		etApellido1 = (EditText) this.findViewById(R.id.editPrimerApellido);
 		etApellido2 = (EditText) this.findViewById(R.id.editSegundoApellido);
 		etNombre = (EditText) this.findViewById(R.id.editNombre);
+		chEntrenador = (CheckBox) this.findViewById(R.id.checkBoxEntrenador);
+		chDeportista = (CheckBox) this.findViewById(R.id.checkBoxDeportista);
 		bAceptar = (Button) this.findViewById(R.id.bAcep);
 		bCancelar = (Button) this.findViewById(R.id.bCanc);
 		bAceptar.setOnClickListener(new OnClickListener( ){
@@ -79,6 +84,10 @@ RadioButton rbMujer;
                                 		i.putExtra("Nomb", etNombre.getText().toString());
                                 		if(rbHombre.isChecked()){i.putExtra("Sexo", true);}
                                 		else{i.putExtra("Sexo", false);}
+                                		if(chEntrenador.isChecked()){i.putExtra("Entr", true);}
+                                		else{i.putExtra("Entr", false);}
+                                		if(chDeportista.isChecked()){i.putExtra("Depo", true);}
+                                		else{i.putExtra("Depo", false);}
                                 		startActivityForResult(i, 1);
                             		}
                         		}	

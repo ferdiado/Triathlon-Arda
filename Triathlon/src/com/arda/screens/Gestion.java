@@ -63,7 +63,7 @@ ImageButton bDel;
 			 
             @Override
             public void onClick(View v) {
-            	Intent i = new Intent(Gestion.this, ControlTiempos.class);     		
+            	Intent i = new Intent(Gestion.this, Estadisticas.class);     		
                 startActivity(i);
             	
 	}
@@ -72,7 +72,7 @@ ImageButton bDel;
 			 
             @Override
             public void onClick(View v) {
-            	Intent i = new Intent(Gestion.this, ControlTiempos.class);     		
+            	Intent i = new Intent(Gestion.this, Estadisticas.class);     		
                 startActivity(i);
             	
 	}
