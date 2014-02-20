@@ -3,6 +3,7 @@ package com.arda.screens;
 import java.util.ArrayList;
 
 import com.arda.BBD.Users;
+import com.arda.tasukete.AdaptadorDeportista;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -10,8 +11,10 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.View;
 import android.widget.GridLayout;
 import android.widget.GridView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 /**
@@ -21,32 +24,35 @@ import android.widget.Toast;
  * @author FADAD
  *
  */
-public class ControlTiempos extends Activity implements SeleccionDeportista.OnMandaDatos{
+public class ControlTiempos extends Activity{
 	
-	FragmentManager fManager; // Declaramos objetos.
-	FragmentTransaction fTransaction;
-	Fragment fragment; // Contiene los fragment 2 y 3.
 	ArrayList<String> nombres, imagenes, deportistas;
 	GridView GridDeportistas;
 	Users BDUsuarios;
+	String usuario;
 	int numDeportistas;
-	
-
+	AdaptadorDeportista adaptador;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_lista_deportistas);
-		fManager = getFragmentManager();
-		GridDeportistas = (GridView) findViewById(R.id.gridDeportista);
-		//GridDeportistas.setAdapter(nombres);
-		BDUsuarios = new Users(getApplicationContext());
+
+		//usuario = //Aquí hay que recoger el usuario que esta logeado.
+
+		deportistas = new ArrayList<String>();
+		deportistas.add("ENTRENADOR");
+		deportistas.add("JUAN");
+		construyeDeportistas();
+		/*BDUsuarios = new Users(getApplicationContext());
 		BDUsuarios.abrirBd();
 		deportistas = BDUsuarios.numeroDeportistas("ENTRENADOR");
 		numDeportistas = deportistas.size();
 		if(numDeportistas<1){
 			Toast.makeText(getApplicationContext(), "ERROR - No existen deportitas para mostrar", Toast.LENGTH_SHORT).show();
-		}
+		}else{
+			construyeDeportistas();
+		}*/
 	}
 
 	@Override
@@ -56,7 +62,7 @@ public class ControlTiempos extends Activity implements SeleccionDeportista.OnMa
 		return true;
 	}
 
-	@Override
+	/*@Override
 	public void onMandaDatosToFragment(String nombre, String rutaImg) {
 		// TODO Auto-generated method stub
 		
@@ -66,11 +72,26 @@ public class ControlTiempos extends Activity implements SeleccionDeportista.OnMa
 		
 		datos.putStringArrayList("nombres", nombres);
 		datos.putStringArrayList("imagenes", imagenes);
+		datos.putString("Usuario", usuario);
 		
 		fragment = new SeleccionDeportista();
 		
 		fragment.setArguments(datos);
 		
+	}*/
+
+	private void construyeDeportistas() {
+		// ArrayList para construir los deportistas copia de deportistas.
+		//final ArrayList<String> deportistasTempo = deportistas;
 		
+		GridDeportistas = (GridView) findViewById(R.id.gridDeportista);
+		
+		registerForContextMenu(GridDeportistas);
+		
+		adaptador = new AdaptadorDeportista(this, R.layout.fragment_deportista, deportistas);
+		
+		GridDeportistas.setNumColumns(2);
+		GridDeportistas.setAdapter(adaptador);
+
 	}
 }
