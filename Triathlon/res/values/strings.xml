@@ -104,4 +104,5 @@
 		    <string name="atletismo">Atletismo</string>
 		    <string name="ciclismo">Ciclismo</string>
 		    <string name="natacion">Natación</string>
+		    <string name="modoGestion">Gestión</string>
 </resources>

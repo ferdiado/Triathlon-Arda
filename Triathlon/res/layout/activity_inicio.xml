@@ -14,43 +14,73 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="0.23"
+            android:background="@drawable/marcofragment"
             android:orientation="vertical" >
 
-            <Button
-                android:id="@+id/button1"
+            <TextView
+                android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/button2"
-                android:layout_alignParentBottom="true"
-                android:layout_alignRight="@+id/button2"
-                android:background="@drawable/modocompeticionboton" />
+                android:layout_below="@+id/button1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="24dp"
+                android:text="@string/modoCompeticion"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/button2"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp"
+                android:text="@string/modoEntrenamiento"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <Button
                 android:id="@+id/button2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_above="@+id/button1"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentRight="true"
                 android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="33dp"
                 android:background="@drawable/entrenamiento_triatlon_icono" />
+
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView2"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="49dp"
+                android:background="@drawable/modocompeticionboton" />
 
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/RelativeLayout1"
-            android:layout_width="534dp"
-            android:layout_height="match_parent" >
+            android:layout_width="479dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/marcofragment" >
 
             <Button
                 android:id="@+id/button3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentRight="true"
                 android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="105dp"
                 android:background="@drawable/gestion_icono" />
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/button3"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="46dp"
+                android:text="@string/modoGestion"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
 
         </RelativeLayout>
     </LinearLayout>
