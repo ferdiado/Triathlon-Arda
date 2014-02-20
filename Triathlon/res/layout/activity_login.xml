@@ -37,32 +37,48 @@
                 android:id="@+id/contenedorTextos"
                 android:layout_width="383dp"
                 android:layout_height="121dp"
+                android:layout_weight="0.13"
                 android:orientation="vertical" >
+
+                <Button
+                    android:id="@+id/login"
+                    android:layout_width="166dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/editPassword"
+                    android:layout_margin="10dp"
+                    android:layout_marginTop="21dp"
+                    android:layout_toRightOf="@+id/textView1"
+                    android:background="@drawable/iniciar_boton" />
 
                 <EditText
                     android:id="@+id/editUsario"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/textView1"
-                    android:layout_alignBottom="@+id/textView1"
-                    android:layout_toRightOf="@+id/textView2"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="167dp"
                     android:layout_weight="1.44"
                     android:ems="10"
                     android:inputType="text" />
 
-                <EditText
-                    android:id="@+id/editPassword"
+                <Button
+                    android:id="@+id/register"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginBottom="18dp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="textPassword" >
+                    android:layout_alignLeft="@+id/login"
+                    android:layout_alignRight="@+id/login"
+                    android:layout_below="@+id/login"
+                    android:background="@drawable/registrarse_boton_pequeno" />
 
-                    
-                </EditText>
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/editUsario"
+                    android:layout_marginRight="16dp"
+                    android:layout_toLeftOf="@+id/editUsario"
+                    android:text="@string/usuario" />
 
                 <TextView
                     android:id="@+id/textView2"
@@ -70,35 +86,24 @@
                     android:layout_height="wrap_content"
                     android:layout_alignBaseline="@+id/editPassword"
                     android:layout_alignBottom="@+id/editPassword"
-                    android:layout_toLeftOf="@+id/editPassword"
+                    android:layout_toLeftOf="@+id/editUsario"
                     android:layout_weight="1.44"
                     android:text="@string/password" />
 
-                <TextView
-                    android:id="@+id/textView1"
+                <EditText
+                    android:id="@+id/editPassword"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_above="@+id/editPassword"
-                    android:layout_alignRight="@+id/textView2"
-                    android:text="@string/usuario" />
+                    android:layout_alignLeft="@+id/editUsario"
+                    android:layout_below="@+id/editUsario"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="textPassword" />
 
             </RelativeLayout>
 
-            <Button
-                android:id="@+id/login"
-                android:layout_width="166dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:background="@drawable/boton_login_pequeno"
-                android:text="@string/iniciar" />
-
-            <Button
-                android:id="@+id/register"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/logo_register"
-                android:text="@string/registrarse" />
         </LinearLayout>
+
     </LinearLayout>
 
 </AbsoluteLayout>

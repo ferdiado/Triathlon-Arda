@@ -220,41 +220,43 @@
             android:layout_width="544dp"
             android:layout_height="match_parent" >
 
-            <Button
-                android:id="@+id/bAcep"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignTop="@+id/bCanc"
-                android:layout_marginRight="22dp"
-                android:layout_toLeftOf="@+id/bCanc"
-                android:background="@drawable/boton_aceptar" android:contentDescription="TODO"/>
-
             <ImageView
                 android:id="@+id/imageView5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:layout_toLeftOf="@+id/bAcep"
+                android:layout_marginLeft="16dp"
                 android:src="@drawable/linea_separacion2" />
 
             <Button
-                android:id="@+id/bCanc"
+                android:id="@+id/bAcep"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="22dp"
-                android:background="@drawable/boton_cancelar" />
+                android:layout_marginLeft="59dp"
+                android:layout_toRightOf="@+id/imageView5"
+                android:background="@drawable/boton_aceptar_pequeno_registro"
+                android:contentDescription="TODO" />
 
             <ImageView
                 android:id="@+id/imageView1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
-                android:layout_alignRight="@+id/button2"
-                android:layout_marginRight="26dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="67dp"
                 android:contentDescription="@string/imagenregistro"
-                android:src="@drawable/registrarse" />
+                android:src="@drawable/nousuario_registro" />
+
+            <Button
+                android:id="@+id/bCanc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="43dp"
+                android:layout_toRightOf="@+id/bAcep"
+                android:background="@drawable/boton_cancerlar_registro_pequeno_2" />
 
         </RelativeLayout>
 
