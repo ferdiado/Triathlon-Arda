@@ -101,4 +101,7 @@
 		    <string name="label_nombre_Daniel">Daniel Amorós</string>
 		    <string name="label_nombre_Josue">Josué Zanón</string>
 		    <string name="label_fecha_acercade">2013 - 2014 Arda</string>
+		    <string name="atletismo">Atletismo</string>
+		    <string name="ciclismo">Ciclismo</string>
+		    <string name="natacion">Natación</string>
 </resources>
