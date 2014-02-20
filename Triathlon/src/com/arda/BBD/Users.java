@@ -2,7 +2,9 @@ package com.arda.BBD;
 
 import java.sql.Blob;
 import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import org.apache.http.util.ByteArrayBuffer;
 
@@ -110,8 +112,8 @@ public class Users{
 			args = new String[] {usuario};
 			args1=new String[]{contraseña};
 
-			Cursor c=nBD.rawQuery("SELECT IDUSER from Users where IDUSER=? LIMIT 1;",args);
-			Cursor c2=nBD.rawQuery("SELECT CONTRA from Users where CONTRA=? LIMIT 1;",args1);
+			Cursor c=nBD.rawQuery("SELECT IDUSER from Users where IDUSER=? AND FECHABAJA IS NULL LIMIT 1;",args);
+			Cursor c2=nBD.rawQuery("SELECT CONTRA from Users where CONTRA=? AND FECHABAJA IS NULL LIMIT 1;",args1);
 
 
 			//Nos aseguramos de que existe al menos un registro
@@ -162,7 +164,7 @@ public class Users{
 	 * @param SEXO
 	 * @param FOTO
 	 */
-	public int crearEntrada(String USUARIO, String CONTRASEÑA,String NOMBRE,String FECHA ,boolean ENTRENADOR,boolean DEPORTISTA,boolean SEXO,String FOTO) {
+	public int crearEntrada(String USUARIO, String CONTRASEÑA,String NOMBRE,String FECHA ,String ENTRENADOR,boolean DEPORTISTA,boolean SEXO,String FOTO) {
 		//Metodo para insertar en la base de datos .Debo realizar un switch con 0 insertado,1 usuario repetido,2 otros fallos.Que devuelva 
 		//Meterlo dentro de un try catch.
 		//El siguiente metodo devuelve un int en función de si se ha insertado o no. Este metodo inserta en la base de datos los datos.
@@ -210,18 +212,18 @@ public class Users{
 	 *  
 	 *
 	 */
-	public  void modificarEntrada(String USUARIO, String CONTRASEÑA,String NOMBRE,String FECHA, boolean ENTRENADOR,boolean DEPORTISTA,boolean SEXO,String FOTO) {
+	public  void modificarEntrada(String USUARIO, String CONTRASEÑA,String NOMBRE,String FECHA,String ENTRENADOR,boolean DEPORTISTA,boolean SEXO,String FOTO) {
 
 
 		try {
 			//nBD=db1.getWritableDatabase();
 			ContentValues cv = new ContentValues();
 			//Aqui mediante el metodo put del ContentValues insertamos los campos(ID,Valor)
-			//cv.put(ID_USER,USUARIO);
+			cv.put(ID_USER,USUARIO);
 			cv.put(ID_CONTRA,CONTRASEÑA);
 			cv.put(ID_NOMBRE,NOMBRE);
 			cv.put(ID_FECHA,FECHA);
-			cv.put(ID_ENTRENADOR,ENTRENADOR);
+			cv.put(ID_ENTRENADOR, ENTRENADOR);
 			cv.put(ID_DEPORTISTA,DEPORTISTA);
 			cv.put(ID_SEXO,SEXO);
 			cv.put(ID_FOTO,FOTO);
@@ -315,9 +317,9 @@ public class Users{
 		Log.d("BBDD", "llega al metodo de numerodeportistas");
 		ArrayList<String> resultados= null;
 		String[] args = new String[] {entrenador};
-		Cursor c= nBD.rawQuery("SELECT IDUSER  from Users where ENTRENADOR=?;", args);
+		Cursor c= nBD.rawQuery("SELECT IDUSER  from Users where ENTRENADOR=? AND FECHABAJA IS NULL ;", args);
 
-		//if (c.moveToFirst()) {
+	
 			resultados = new ArrayList<String>();
 
 			//Recorremos el cursor hasta que no haya más registros
@@ -327,8 +329,7 @@ public class Users{
 				resultados.add(resultado);
 			};
 			Log.d("BBDD", "longitud:"+resultados.size());
-			//Toast.makeText(null, "longitud:"+resultados.size()+" resultado1:"+resultados.get(0), Toast.LENGTH_SHORT).show();
-		//}
+		
 		c.close();
 		nBD.close();
 		return resultados;
@@ -336,6 +337,51 @@ public class Users{
 
 	}
 
+	/**
+	 * Este método devuelve un ArrayList todos los datos de un deportista en base a un IDUSER
+	 * @param iduser(deportista)
+	 * @return Todos los parametros de un deportista. 
+	 */
+	public ArrayList<String> datosDeportistas(String iduser){
+		Log.d("BBDD", "llega al metodo de datosDeportistas");
+		ArrayList<String> resultados= null;
+		String[] args = new String[] {iduser};
+		Cursor c= nBD.rawQuery("select * from users where IDUSER=? AND FECHABAJA IS NULL;", args);
 
+	
+			resultados = new ArrayList<String>();
+
+			//Recorremos el cursor hasta que no haya más registros
+			while(c.moveToNext()){
+				Log.d("BBDD", "entra aqui?");
+				String resultado= c.getString(0);
+				resultados.add(resultado);
+			};
+			Log.d("BBDD", "longitud:"+resultados.size());
+		
+		c.close();
+		nBD.close();
+		return resultados;
+
+
+	}
+	
+	/**
+	 * Este método da de baja a un deportista,pasandole la fecha de baja. Desactivandolo en la base de datos. 
+	 * @param deportista
+	 */
+	 public void darBaja(String deportista){
+		 Calendar c = Calendar.getInstance();
+		 SimpleDateFormat df1 = new SimpleDateFormat("yyyy-MM-dd");
+		 String fechabaja = df1.format(c.getTime());
+		 ContentValues cv = new ContentValues();
+		 cv.put(FECHABAJA, fechabaja);
+		 
+		 nBD.update(N_TABLA, cv, ID_USER+"=?", new String []{String.valueOf(ID_USER)});
+		 
+		 
+		 
+		 
+	 }	
 
 }
