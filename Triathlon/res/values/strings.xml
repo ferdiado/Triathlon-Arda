@@ -93,16 +93,17 @@
 		    <string name="labelTituloGesSesi">Gestion Sesiones</string>
 		    <string name="labelTituloGesDepor">Gestion Deportista</string>
 		    <string name="label_titulo_acercade">ARDA</string>
-		    <string name="texto_acercade">ARDA, Aplicación de Rendimiento Deportivo Avanzado</string>
+		    <string name="texto_acercade">Aplicación de Rendimiento Deportivo Avanzado</string>
 		    <string name="label_nombre_Fernando">Fernando Antonio Díaz-Alonso</string>
 		    <string name="label_nombre_Luis">Luis García</string>
 		    <string name="label_nombre_Pedro">Pedro Emilio Lis</string>
 		    <string name="label_nombre_Fran">Fran Manzano</string>
 		    <string name="label_nombre_Daniel">Daniel Amorós</string>
 		    <string name="label_nombre_Josue">Josué Zanón</string>
-		    <string name="label_fecha_acercade">2013 - 2014 Arda</string>
+		    <string name="label_fecha_acercade">2013 - 2014</string>
 		    <string name="atletismo">Atletismo</string>
 		    <string name="ciclismo">Ciclismo</string>
 		    <string name="natacion">Natación</string>
 		    <string name="modoGestion">Gestión</string>
+		    <string name="label_curso_acercade">2º DAM - Florida Ciclos Formativos</string>
 </resources>
