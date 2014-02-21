@@ -30,7 +30,7 @@ public class Users{
 
 
 	//Aqui tenemos todos los campos de la tabla Users
-	public static final String ID_FILA = "_id";
+	
 	public static final String ID_USER = "IDUSER";
 	public static final String ID_CONTRA = "CONTRA";
 	public static final String ID_NOMBRE = "NOMBRE";
@@ -58,12 +58,12 @@ public class Users{
 
 	//nombre de la base de datos sqlit
 
-
+/*
 	public Users(Context context){
 
 		db1=new crearBD(context);
 
-	}
+	}*/
 
 	/**
 	 * Este metodo abre la base de datos.
