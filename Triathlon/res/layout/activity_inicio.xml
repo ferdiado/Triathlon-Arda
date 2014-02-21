@@ -17,14 +17,6 @@
             android:background="@drawable/marcofragment"
             android:orientation="vertical" >
 
-            <Button
-                android:id="@+id/button2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/textView3"
-                android:layout_alignParentTop="true"
-                android:background="@drawable/boton_entrenamiento" />
-
             <TextView
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
@@ -33,7 +25,7 @@
                 android:layout_centerHorizontal="true"
                 android:text="@string/modoCompeticion"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textSize="35dp" />
+                android:textSize="25dp" />
 
             <TextView
                 android:id="@+id/textView2"
@@ -43,7 +35,15 @@
                 android:layout_centerHorizontal="true"
                 android:text="@string/modoEntrenamiento"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textSize="35dp" />
+                android:textSize="25dp" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/boton_entrenamiento" />
 
             <Button
                 android:id="@+id/button1"
@@ -51,6 +51,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/textView2"
                 android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp"
                 android:background="@drawable/boton_competicion" />
 
         </RelativeLayout>
