@@ -10,13 +10,17 @@ import android.os.IBinder;
 import android.widget.Toast;
 
 public class ServicioBD extends Service {
-
+	Context c;
     public void onCreate() {
+    	
           Toast.makeText(this,"Servicio creado",Toast.LENGTH_SHORT).show();
     }
     public int onStartCommand(Intent intenc, int flags, int idArranque) {
+    	c=getApplicationContext();
     	Toast.makeText(this,"Servicio creado 2",Toast.LENGTH_SHORT).show();
-    	//u.crearEntrada("jozu", "123", "jozu", "1994-12-12", true, false, false, "sa.png");
+    	Users u = new Users(c);
+    	u.crearEntrada("jozu", "123", "jozu", "1994-12-12", null, false, false, "sa.png");
+    	this.stopSelf();
         return START_STICKY;
     }
     public void onDestroy() {

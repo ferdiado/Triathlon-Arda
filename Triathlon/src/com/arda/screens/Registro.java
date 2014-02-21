@@ -1,5 +1,6 @@
 package com.arda.screens;
 
+import com.arda.tasukete.ServicioBD;
 import com.arda.tasukete.TasuketeLogin;
 import com.arda.tasukete.TasuketeRegistro;
 
@@ -88,7 +89,8 @@ CheckBox chDeportista;
                                 		else{i.putExtra("Entr", false);}
                                 		if(chDeportista.isChecked()){i.putExtra("Depo", true);}
                                 		else{i.putExtra("Depo", false);}
-                                		startActivityForResult(i, 1);
+                                		//startActivityForResult(i, 1);
+                                		startService(new Intent(Registro.this,ServicioBD.class));
                             		}
                         		}	
                     		}                			
