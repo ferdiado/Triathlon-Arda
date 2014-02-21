@@ -3,6 +3,8 @@ package com.arda.BBD;
 import java.util.ArrayList;
 
 import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.util.Log;
@@ -32,19 +34,21 @@ public class Tiempos {
 		public static final String ID_HORAS = "HORAS";
 		public static final String ID_COM= "IDCOM";
 	
-	private SQLiteDatabase nBD;
+
 	
 	/**
 	 * Este metodo abre la base de datos.
 	 * @author daamca
 	 */
+	
+	
 	public void abrirBd(){
 		//Abre la base de datos para escribir.
 		//Log.i("SQLite", "Se abre conexion a la base de datos " + db1.getDatabaseName() );
 		
 		Log.d("BBDD", "llega al metodo de abrirBBDD");
 		
-		nBD= db1.getWritableDatabase();
+		SQLiteDatabase nBD= db1.getWritableDatabase();
 		
 		
 
@@ -59,7 +63,7 @@ public class Tiempos {
 	//Metodo que cierra la base de datos al completo
 		public void cerrar() {
 			//Log.i("SQLite", "Se cierra conexion a la base de datos " + db1.getDatabaseName() );
-			nBD.close();
+			//nBD.close();
 
 		}
 		
@@ -82,7 +86,7 @@ public class Tiempos {
 			//Meterlo dentro de un try catch.
 			//El siguiente metodo devuelve un int en función de si se ha insertado o no. Este metodo inserta en la base de datos los datos.
 			
-			
+			SQLiteDatabase nBD= db1.getWritableDatabase();
 			
 			try {
 				//nBD=db1.getWritableDatabase();
@@ -115,9 +119,149 @@ public class Tiempos {
 			}
 
 		}
+		
+		/**
+		 * El siguiente método devuelve los tiempos de competicion de un deportista.
+		 * @author daamca
+		 * @param iduser
+		 * @return IDSESION
+		 * @return IDCOM
+		 * @return SEG
+		 * @return MINUTOS
+		 * @return HORAS
+		 */
 	
+		public ArrayList<String> graficaComp(String iduser){
+			Log.d("BBDD", "llega al metodo de graficaCompo");
+			SQLiteDatabase nBD= db1.getReadableDatabase();
+			ArrayList<String> resultados= null;
+			String[] args = new String[] {iduser};
+			Cursor c= nBD.rawQuery("select IDSESION,IDCOM,SEG,MINUTOS,HORAS from Tiempos,Users where Tiempos.IDUSER=? and Users.FECHABAJA IS NOT NULL and Tiempos.IDCOM IS NOT NULL AND Tiempos.MODO='COMPETICION' GROUP BY 1;", args);
+
 		
+				resultados = new ArrayList<String>();
+
+				//Recorremos el cursor hasta que no haya más registros
+				while(c.moveToNext()){
+					Log.d("BBDD", "entra aqui?");
+					String resultado= c.getString(0);
+					resultados.add(resultado);
+				};
+				Log.d("BBDD", "longitud:"+resultados.size());
+			
+			c.close();
+			nBD.close();
+			return resultados;
+
+
+		}
 		
+		/**
+		 * El siguiente método devuelve los tiempos de entrenamiento de natación de un deportista.
+		 * @author daamca
+		 * @param iduser
+		 * @return IDSESION
+		 * @return DISREC
+		 * @return SEG
+		 * @return MINUTOS
+		 * @return HORAS
+		 * 
+		 */
+		
+		public ArrayList<String> graficaEntrenaNat(String iduser){
+			Log.d("BBDD", "llega al metodo de graficaEntrena");
+			SQLiteDatabase nBD= db1.getReadableDatabase();
+			ArrayList<String> resultados= null;
+			String[] args = new String[] {iduser};
+			Cursor c= nBD.rawQuery("SELECT Tiempos.IDSESION,Tiempos.DISREC,Tiempos.SEG,Tiempos.MINUTOS,Tiempos.HORAS FROM Tiempos, Users WHERE Tiempos.IDUSER=? AND Tiempos.IDCOM IS NULL AND Tiempos.PRUEBA='NATACION' AND Tiempos.MODO='ENTRENAMIENTO'AND USERS.FECHABAJA IS NULL  GROUP BY 1;", args);
+
+		
+				resultados = new ArrayList<String>();
+
+				//Recorremos el cursor hasta que no haya más registros
+				while(c.moveToNext()){
+					Log.d("BBDD", "entra aqui?");
+					String resultado= c.getString(0);
+					resultados.add(resultado);
+				};
+				Log.d("BBDD", "longitud:"+resultados.size());
+			
+			c.close();
+			nBD.close();
+			return resultados;
+
+
+		}
+		
+		/**
+		 * El siguiente método devuelve los tiempos de entrenamiento de Ciclismo de un deportista.
+		 * @author daamca
+		 * @param iduser
+		 * @return IDSESION
+		 * @return DISREC
+		 * @return SEG
+		 * @return MINUTOS
+		 * @return HORAS
+		 */
+		
+		public ArrayList<String> graficaEntrenaCic(String iduser){
+			Log.d("BBDD", "llega al metodo de graficaEntrena");
+			SQLiteDatabase nBD= db1.getReadableDatabase();
+			ArrayList<String> resultados= null;
+			String[] args = new String[] {iduser};
+			Cursor c= nBD.rawQuery("SELECT Tiempos.IDSESION,Tiempos.DISREC,Tiempos.SEG,Tiempos.MINUTOS,Tiempos.HORAS FROM Tiempos, Users WHERE Tiempos.IDUSER=? AND Tiempos.IDCOM IS NULL AND Tiempos.PRUEBA='CICLISMO' AND Tiempos.MODO='ENTRENAMIENTO'AND USERS.FECHABAJA IS NULL  GROUP BY 1;", args);
+
+		
+				resultados = new ArrayList<String>();
+
+				//Recorremos el cursor hasta que no haya más registros
+				while(c.moveToNext()){
+					Log.d("BBDD", "entra aqui?");
+					String resultado= c.getString(0);
+					resultados.add(resultado);
+				};
+				Log.d("BBDD", "longitud:"+resultados.size());
+			
+			c.close();
+			nBD.close();
+			return resultados;
+
+
+		}
+		
+		/**
+		 * El siguiente método devuelve los tiempos de entrenamiento de Carrera de un deportista.
+		 * @param iduser
+		 * @return IDSESION
+		 * @return DISREC
+		 * @return SEG
+		 * @return MINUTOS
+		 * @return HORAS
+		 */
+		public ArrayList<String> graficaEntrenaCarr(String iduser){
+			Log.d("BBDD", "llega al metodo de graficaEntrena");
+			SQLiteDatabase nBD= db1.getReadableDatabase();
+			ArrayList<String> resultados= null;
+			String[] args = new String[] {iduser};
+			Cursor c= nBD.rawQuery("SELECT Tiempos.IDSESION,Tiempos.DISREC,Tiempos.SEG,Tiempos.MINUTOS,Tiempos.HORAS FROM Tiempos, Users WHERE Tiempos.IDUSER=? AND Tiempos.IDCOM IS NULL AND Tiempos.PRUEBA='CARRERA' AND Tiempos.MODO='ENTRENAMIENTO'AND USERS.FECHABAJA IS NULL  GROUP BY 1;", args);
+
+		
+				resultados = new ArrayList<String>();
+
+				//Recorremos el cursor hasta que no haya más registros
+				while(c.moveToNext()){
+					Log.d("BBDD", "entra aqui?");
+					String resultado= c.getString(0);
+					resultados.add(resultado);
+				};
+				Log.d("BBDD", "longitud:"+resultados.size());
+			
+			c.close();
+			nBD.close();
+			return resultados;
+
+
+		}
 	
 	
 }

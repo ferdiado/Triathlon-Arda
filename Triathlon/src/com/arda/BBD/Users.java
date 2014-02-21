@@ -101,7 +101,7 @@ public class Users{
 		String[] args1;
 		String user="";
 		String contra="";
-		SQLiteDatabase nBD= db1.getWritableDatabase();
+		SQLiteDatabase nBD= db1.getReadableDatabase();
 		try{
 			
 			args = new String[] {usuario};
@@ -251,7 +251,7 @@ public class Users{
 	 */
 
 	public String idFoto(String usuario){
-		SQLiteDatabase nBD= db1.getWritableDatabase();
+		SQLiteDatabase nBD= db1.getReadableDatabase();
 		String[] args = new String[] {usuario};
 		Cursor c= nBD.rawQuery("SELECT IDFOTO  from Users where IDUSER=? LIMIT 1;",args);
 		if (c.moveToFirst()) {
@@ -286,7 +286,7 @@ public class Users{
 	public boolean userBis(String USUARIO) {
 		//Aqui instanciamos al metodo getReadableDatabase,este metodo abre la base de datos para lectura.
 		// nBD=db1.getReadableDatabase();
-		SQLiteDatabase nBD= db1.getWritableDatabase();
+		SQLiteDatabase nBD= db1.getReadableDatabase();
 
 		String[] args = new String[] {USUARIO};
 		Cursor c= nBD.rawQuery("SELECT IDUSER  from Users where IDUSER=? LIMIT 1;", args);
@@ -316,7 +316,7 @@ public class Users{
 	 */
 	public ArrayList<String> numeroDeportistas(String entrenador){
 		Log.d("BBDD", "llega al metodo de numerodeportistas");
-		SQLiteDatabase nBD= db1.getWritableDatabase();
+		SQLiteDatabase nBD= db1.getReadableDatabase();
 		ArrayList<String> resultados= null;
 		String[] args = new String[] {entrenador};
 		Cursor c= nBD.rawQuery("SELECT IDUSER  from Users where ENTRENADOR=? AND FECHABAJA IS NULL ;", args);
@@ -346,7 +346,7 @@ public class Users{
 	 */
 	public ArrayList<String> datosDeportistas(String iduser){
 		Log.d("BBDD", "llega al metodo de datosDeportistas");
-		SQLiteDatabase nBD= db1.getWritableDatabase();
+		SQLiteDatabase nBD= db1.getReadableDatabase();
 		ArrayList<String> resultados= null;
 		String[] args = new String[] {iduser};
 		Cursor c= nBD.rawQuery("select * from users where IDUSER=? AND FECHABAJA IS NULL;", args);
