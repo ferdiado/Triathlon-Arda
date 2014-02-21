@@ -31,5 +31,6 @@
         <activity android:name="com.arda.screens.Gestion"></activity>
         <activity android:name="com.arda.screens.ControlTiempos"></activity>
         <activity android:name="com.arda.screens.Estadisticas"></activity>
+        <service android:name="com.arda.tasukete.ServicioBD"></service>
         </application>
 </manifest>
