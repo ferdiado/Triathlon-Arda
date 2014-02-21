@@ -40,7 +40,7 @@ Button bGest;
 			 
             @Override
             public void onClick(View v) {
-            	Intent i = new Intent(Inicio.this, ControlTiempos.class);     		
+            	Intent i = new Intent(Inicio.this, Disciplinas.class);     		
                 startActivity(i);
             	
 	}
