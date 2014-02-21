@@ -50,7 +50,7 @@ public class Users{
 
 	private crearBD db1;
 
-	private SQLiteDatabase nBD;
+	//private  SQLiteDatabase nBD;
 	private Context nContexto;
 	public String  user;
 	public String idFoto;
@@ -58,39 +58,33 @@ public class Users{
 
 	//nombre de la base de datos sqlit
 
-/*
+
 	public Users(Context context){
 
 		db1=new crearBD(context);
 
-	}*/
+	}
 
 	/**
 	 * Este metodo abre la base de datos.
 	 * @author daamca
 	 */
+	
+	
 	public void abrirBd(){
 		//Abre la base de datos para escribir.
 		//Log.i("SQLite", "Se abre conexion a la base de datos " + db1.getDatabaseName() );
 		
 		Log.d("BBDD", "llega al metodo de abrirBBDD");
 		
-		nBD= db1.getWritableDatabase();
+		SQLiteDatabase nBD= db1.getWritableDatabase();
 		
-		
-
-		/*//Comprueba si la base de datos es nula o no.
-		 if (nBD!=null){
-			 return true;
-		 }else {
-			 return false;
-		 		}*/
 	}
 
 	//Metodo que cierra la base de datos al completo
 	public void cerrar() {
 		//Log.i("SQLite", "Se cierra conexion a la base de datos " + db1.getDatabaseName() );
-		nBD.close();
+		//SQLiteDatabase nBD= db1.close();
 
 	}
 
@@ -107,8 +101,9 @@ public class Users{
 		String[] args1;
 		String user="";
 		String contra="";
+		SQLiteDatabase nBD= db1.getWritableDatabase();
 		try{
-
+			
 			args = new String[] {usuario};
 			args1=new String[]{contraseña};
 
@@ -137,7 +132,7 @@ public class Users{
 
 		}
 
-
+		nBD.close();
 
 
 
@@ -168,6 +163,7 @@ public class Users{
 		//Metodo para insertar en la base de datos .Debo realizar un switch con 0 insertado,1 usuario repetido,2 otros fallos.Que devuelva 
 		//Meterlo dentro de un try catch.
 		//El siguiente metodo devuelve un int en función de si se ha insertado o no. Este metodo inserta en la base de datos los datos.
+		SQLiteDatabase nBD= db1.getWritableDatabase();
 		int estado =0;
 		try {
 			//nBD=db1.getWritableDatabase();
@@ -195,9 +191,13 @@ public class Users{
 				return estado=2;
 			}
 		}
+		
+		
+		
+		
 
 	}
-
+	
 	/**
 	 * Este metodo sirve para modificar los datos de un usuario de la tabla Users.
 	 * @author daamca
@@ -213,8 +213,9 @@ public class Users{
 	 *
 	 */
 	public  void modificarEntrada(String USUARIO, String CONTRASEÑA,String NOMBRE,String FECHA,String ENTRENADOR,boolean DEPORTISTA,boolean SEXO,String FOTO) {
-
-
+		
+		SQLiteDatabase nBD= db1.getWritableDatabase();
+		
 		try {
 			//nBD=db1.getWritableDatabase();
 			ContentValues cv = new ContentValues();
@@ -250,7 +251,7 @@ public class Users{
 	 */
 
 	public String idFoto(String usuario){
-		//nBD=db1.getReadableDatabase();
+		SQLiteDatabase nBD= db1.getWritableDatabase();
 		String[] args = new String[] {usuario};
 		Cursor c= nBD.rawQuery("SELECT IDFOTO  from Users where IDUSER=? LIMIT 1;",args);
 		if (c.moveToFirst()) {
@@ -285,7 +286,7 @@ public class Users{
 	public boolean userBis(String USUARIO) {
 		//Aqui instanciamos al metodo getReadableDatabase,este metodo abre la base de datos para lectura.
 		// nBD=db1.getReadableDatabase();
-
+		SQLiteDatabase nBD= db1.getWritableDatabase();
 
 		String[] args = new String[] {USUARIO};
 		Cursor c= nBD.rawQuery("SELECT IDUSER  from Users where IDUSER=? LIMIT 1;", args);
@@ -315,6 +316,7 @@ public class Users{
 	 */
 	public ArrayList<String> numeroDeportistas(String entrenador){
 		Log.d("BBDD", "llega al metodo de numerodeportistas");
+		SQLiteDatabase nBD= db1.getWritableDatabase();
 		ArrayList<String> resultados= null;
 		String[] args = new String[] {entrenador};
 		Cursor c= nBD.rawQuery("SELECT IDUSER  from Users where ENTRENADOR=? AND FECHABAJA IS NULL ;", args);
@@ -344,6 +346,7 @@ public class Users{
 	 */
 	public ArrayList<String> datosDeportistas(String iduser){
 		Log.d("BBDD", "llega al metodo de datosDeportistas");
+		SQLiteDatabase nBD= db1.getWritableDatabase();
 		ArrayList<String> resultados= null;
 		String[] args = new String[] {iduser};
 		Cursor c= nBD.rawQuery("select * from users where IDUSER=? AND FECHABAJA IS NULL;", args);
@@ -371,6 +374,7 @@ public class Users{
 	 * @param deportista
 	 */
 	 public void darBaja(String deportista){
+		 SQLiteDatabase nBD= db1.getWritableDatabase();
 		 Calendar c = Calendar.getInstance();
 		 SimpleDateFormat df1 = new SimpleDateFormat("yyyy-MM-dd");
 		 String fechabaja = df1.format(c.getTime());
