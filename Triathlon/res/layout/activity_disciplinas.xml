@@ -14,11 +14,21 @@
             android:id="@+id/button1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
-            android:layout_marginBottom="83dp"
-            android:layout_marginLeft="127dp"
-            android:text="@string/atletismo" />
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="23dp"
+            android:layout_marginTop="70dp"
+            android:background="@drawable/boton_atletismo_rojo_pequeno" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/button2"
+            android:layout_alignBottom="@+id/button2"
+            android:layout_marginLeft="17dp"
+            android:layout_toRightOf="@+id/button2"
+            android:background="@drawable/boton_natacion_azul_pequeno" />
 
         <Button
             android:id="@+id/button2"
@@ -27,46 +37,7 @@
             android:layout_alignBaseline="@+id/button1"
             android:layout_alignBottom="@+id/button1"
             android:layout_centerHorizontal="true"
-            android:text="@string/ciclismo" />
-
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/button2"
-            android:layout_alignBottom="@+id/button2"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="143dp"
-            android:text="@string/natacion" />
-
-        <ImageView
-            android:id="@+id/imageView1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/button1"
-            android:layout_alignParentLeft="true"
-            android:layout_marginBottom="61dp"
-            android:layout_marginLeft="74dp"
-            android:src="@drawable/atletismo_silueta" />
-
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/imageView1"
-            android:layout_alignTop="@+id/imageView3"
-            android:layout_centerHorizontal="true"
-            android:src="@drawable/ciclismo_silueta" />
-
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/imageView1"
-            android:layout_alignParentRight="true"
-            android:layout_alignTop="@+id/imageView1"
-            android:layout_marginRight="73dp"
-            android:src="@drawable/natacion_silueta" />
+            android:background="@drawable/boton_ciclismo_amarillo_pequeno" />
 
     </RelativeLayout>
 
