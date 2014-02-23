@@ -24,11 +24,12 @@ public class SeleccionDeportista extends Fragment{
 	 * Metodo que construye el fragment del deportista.
 	 */
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+		return container;
         
         //Obtenemos el fragment mediante un inflater.
-		View view = inflater.inflate(R.layout.fragment_deportista, container, false);
+	//	View view = inflater.inflate(R.layout.fragment_deportista, container, false);
 		
-		Bundle bundle = this.getArguments();
+	/*	Bundle bundle = this.getArguments();
 		int numDeportista = bundle.getInt("id_deportista");
 		String[] nomDeportistas  =  bundle.getStringArray("nombres");
 		String[] imgDeportistas = bundle.getStringArray("imagenes");
@@ -42,7 +43,7 @@ public class SeleccionDeportista extends Fragment{
 		nomDeportista = (TextView) getActivity().findViewById(R.id.nomDeportista);	
 		//Lamar al metodo que me de vuelva el nombre de este deportista
 		nomDeportista.setText(nomDeportistas[numDeportista]);
-		return view;
+		return view;*/
   }
 	
 	/**
