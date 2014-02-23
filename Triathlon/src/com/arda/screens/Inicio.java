@@ -31,7 +31,8 @@ Button bGest;
 			 
             @Override
             public void onClick(View v) {
-            	Intent i = new Intent(Inicio.this, ControlDeportistas.class);     		
+            	Intent i = new Intent(Inicio.this, ControlDeportistas.class); 
+            	i.putExtra("Code", 0);
                 startActivity(i);
             	
 	}

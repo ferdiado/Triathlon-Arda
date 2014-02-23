@@ -45,7 +45,8 @@ ImageButton bDel;
 			 
             @Override
             public void onClick(View v) {
-            	Intent i = new Intent(Gestion.this, Registro.class);     		
+            	Intent i = new Intent(Gestion.this, ControlDeportistas.class);
+            	i.putExtra("Code", 1);
                 startActivity(i);
             	
 	}
@@ -54,7 +55,8 @@ ImageButton bDel;
 			 
             @Override
             public void onClick(View v) {
-            	Intent i = new Intent(Gestion.this, Registro.class);     		
+            	Intent i = new Intent(Gestion.this, ControlDeportistas.class);
+            	i.putExtra("Code", 2);
                 startActivity(i);
             	
 	}
