@@ -3,7 +3,8 @@
     android:id="@+id/LinearLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical" 
+    android:background="@drawable/triatlon_fondo_esfuerzo">
 
     <RelativeLayout
         android:id="@+id/RelativeLayout1"
@@ -18,7 +19,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginLeft="23dp"
             android:layout_marginTop="70dp"
-            android:background="@drawable/boton_atletismo_rojo_pequeno" />
+            android:background="@drawable/boton_atletismo_rojo_pequeno_sombra" />
 
         <Button
             android:id="@+id/button3"
@@ -28,7 +29,7 @@
             android:layout_alignBottom="@+id/button2"
             android:layout_marginLeft="17dp"
             android:layout_toRightOf="@+id/button2"
-            android:background="@drawable/boton_natacion_azul_pequeno" />
+            android:background="@drawable/boton_natacion_azul_pequeno_sombra" />
 
         <Button
             android:id="@+id/button2"
@@ -37,7 +38,7 @@
             android:layout_alignBaseline="@+id/button1"
             android:layout_alignBottom="@+id/button1"
             android:layout_centerHorizontal="true"
-            android:background="@drawable/boton_ciclismo_amarillo_pequeno" />
+            android:background="@drawable/boton_ciclismo_amarillo_pequeno_sombra" />
 
     </RelativeLayout>
 
