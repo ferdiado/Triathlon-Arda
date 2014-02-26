@@ -69,7 +69,7 @@
             android:layout_width="265dp"
             android:layout_height="75dp"
             android:layout_gravity="center"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="50dp"
             android:background="#008080"
             android:text="@string/btn_sesiones"
             android:textColor="#ffffff"
@@ -85,6 +85,18 @@
             android:text="@string/btn_competiciones"
             android:textColor="#ffffff"
             android:textSize="35sp" />
+        
+         <Button
+            android:id="@+id/button5"
+            android:layout_width="265dp"
+            android:layout_height="75dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:background="#008080"
+            android:text="@string/btn_graficos"
+            android:textColor="#ffffff"
+            android:textSize="35sp" />
+        
     </LinearLayout>
 
 </LinearLayout>
