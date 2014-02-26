@@ -89,8 +89,8 @@ CheckBox chDeportista;
                                 		else{i.putExtra("Entr", false);}
                                 		if(chDeportista.isChecked()){i.putExtra("Depo", true);}
                                 		else{i.putExtra("Depo", false);}
-                                		//startActivityForResult(i, 1);
-                                		startService(new Intent(Registro.this,ServicioBD.class));
+                                		startActivityForResult(i, 1);
+                                		//startService(new Intent(Registro.this,ServicioBD.class));
                             		}
                         		}	
                     		}                			
