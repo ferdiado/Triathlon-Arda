@@ -1,5 +1,8 @@
 package com.arda.screens;
 
+import java.util.ArrayList;
+
+import com.arda.BBD.Users;
 import com.arda.tasukete.ServicioBD;
 import com.arda.tasukete.TasuketeLogin;
 import com.arda.tasukete.TasuketeRegistro;
@@ -31,7 +34,7 @@ RadioButton rbHombre;
 RadioButton rbMujer;
 CheckBox chEntrenador;
 CheckBox chDeportista;
-
+int code = 2;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -41,13 +44,36 @@ CheckBox chDeportista;
 		etUser = (EditText) this.findViewById(R.id.editUsuario);
 		etPass = (EditText) this.findViewById(R.id.editPassword);
 		etFecha = (EditText) this.findViewById(R.id.editFechaNacimiento);
-		etApellido1 = (EditText) this.findViewById(R.id.editPrimerApellido);
-		etApellido2 = (EditText) this.findViewById(R.id.editSegundoApellido);
 		etNombre = (EditText) this.findViewById(R.id.editNombre);
 		chEntrenador = (CheckBox) this.findViewById(R.id.checkBoxEntrenador);
 		chDeportista = (CheckBox) this.findViewById(R.id.checkBoxDeportista);
 		bAceptar = (Button) this.findViewById(R.id.bAcep);
 		bCancelar = (Button) this.findViewById(R.id.bCanc);
+		code = this.getIntent().getIntExtra("Cod", 2);
+		switch(code){
+		case 0:			
+			break;
+		case 1:
+			/*Users u = new Users(getApplicationContext());
+			ArrayList<String> dep =u.datosDeportistas(this.getIntent().getStringExtra("iduser"));			
+			etUser.setText(dep.get(0));
+			etPass.setText(dep.get(1));
+			etNombre.setText(dep.get(2));
+			etFecha.setText(dep.get(3));
+			if(dep.get(6)=="true"){
+				rbHombre.setChecked(true);
+			}else{
+				rbMujer.setChecked(true);
+			}*/
+			etUser.setText("pepe");
+			etPass.setText("123");
+			etNombre.setText("Pepe");
+			etFecha.setText("2000/10/10");
+			rbHombre.setChecked(true);
+			break;
+		default:
+			break;
+		}
 		bAceptar.setOnClickListener(new OnClickListener( ){
 			 
             @Override
@@ -65,36 +91,27 @@ CheckBox chDeportista;
             			{Toast toast = Toast.makeText(getApplicationContext(), "Fecha no puede esta vacio", Toast.LENGTH_SHORT);
                 		toast.show();
                 		}else{
-                			if(etApellido1.getText().toString().isEmpty())
-                			{Toast toast = Toast.makeText(getApplicationContext(), "Primer Apellido no puede esta vacio", Toast.LENGTH_SHORT);
-                    		toast.show();
-                    		}else{
-                    			if(etApellido2.getText().toString().isEmpty())
-                    			{Toast toast = Toast.makeText(getApplicationContext(), "Segundo Apellido no puede esta vacio", Toast.LENGTH_SHORT);
-                        		toast.show();
-                        		}else{
-                        			if(etNombre.getText().toString().isEmpty())
-                        			{Toast toast = Toast.makeText(getApplicationContext(), "Nombre no puede esta vacio", Toast.LENGTH_SHORT);
+                				if(etNombre.getText().toString().isEmpty())
+                					{Toast toast = Toast.makeText(getApplicationContext(), "Nombre no puede esta vacio", Toast.LENGTH_SHORT);
                             		toast.show();
                             		}else{
                             			i.putExtra("IDus", etUser.getText().toString());
                                 		i.putExtra("Pwrd", etPass.getText().toString());
                                 		i.putExtra("Fech", etFecha.getText().toString());
-                                		i.putExtra("Ape1", etApellido1.getText().toString());
-                                		i.putExtra("Ape2", etApellido2.getText().toString());
                                 		i.putExtra("Nomb", etNombre.getText().toString());
+                                		//hombre = true ; mujer = false;
                                 		if(rbHombre.isChecked()){i.putExtra("Sexo", true);}
                                 		else{i.putExtra("Sexo", false);}
                                 		if(chEntrenador.isChecked()){i.putExtra("Entr", true);}
                                 		else{i.putExtra("Entr", false);}
                                 		if(chDeportista.isChecked()){i.putExtra("Depo", true);}
                                 		else{i.putExtra("Depo", false);}
+                                		i.putExtra("code", code);
                                 		startActivityForResult(i, 1);
                                 		//startService(new Intent(Registro.this,ServicioBD.class));
                             		}
                         		}	
-                    		}                			
-                		}            			           			
+	           			           			
             		}        			
         		}
         }

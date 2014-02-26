@@ -29,7 +29,7 @@ public class Estadisticas extends Activity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_estadisticas);
 		//metodo dani
-		TableIniciator();
+		//TableIniciator();
 		/*TableRow row= new TableRow(this);
         TableRow.LayoutParams lp = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT);
         row.setLayoutParams(lp);

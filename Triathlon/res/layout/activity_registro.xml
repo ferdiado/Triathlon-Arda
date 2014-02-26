@@ -19,7 +19,9 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.53" >
-<requestFocus />
+
+            <requestFocus />
+
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
@@ -33,28 +35,9 @@
                 android:id="@+id/textView1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/textView4"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="54dp"
                 android:text="@string/usuarioregistro" />
-
-            <TextView
-                android:id="@+id/textView5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_below="@+id/textView4"
-                android:layout_marginTop="29dp"
-                android:text="@string/segundoapellidoregistro" />
-
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_below="@+id/textView3"
-                android:layout_marginTop="28dp"
-                android:text="@string/primerapellidoregistro" />
 
             <TextView
                 android:id="@+id/textView3"
@@ -70,7 +53,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
-                android:layout_below="@+id/textView5"
+                android:layout_below="@+id/textView3"
                 android:layout_marginTop="27dp"
                 android:text="@string/fechanacimientoregistro" />
 
@@ -82,7 +65,8 @@
                 android:layout_alignBottom="@+id/textView1"
                 android:layout_marginLeft="31dp"
                 android:layout_toRightOf="@+id/textView6"
-                android:ems="10" android:inputType="text"/>
+                android:ems="10"
+                android:inputType="text" />
 
             <EditText
                 android:id="@+id/editFechaNacimiento"
@@ -91,35 +75,17 @@
                 android:layout_alignBottom="@+id/textView6"
                 android:layout_alignLeft="@+id/editUsuario"
                 android:ems="10"
-                android:hint="10/10/2000"
+                android:hint="2000/10/10"
                 android:inputType="date" />
-
-            <EditText
-                android:id="@+id/editSegundoApellido"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_above="@+id/editFechaNacimiento"
-                android:layout_alignLeft="@+id/editFechaNacimiento"
-                android:ems="10" android:inputType="text"/>
-
-            <EditText
-                android:id="@+id/editPrimerApellido"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_above="@+id/editSegundoApellido"
-                android:layout_alignLeft="@+id/editSegundoApellido"
-                android:ems="10" android:inputType="text"/>
 
             <EditText
                 android:id="@+id/editNombre"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/editPrimerApellido"
-                android:layout_alignTop="@+id/textView3"
-                android:ems="10" android:inputType="text">
-
-                
-            </EditText>
+                android:layout_above="@+id/editFechaNacimiento"
+                android:layout_alignLeft="@+id/editFechaNacimiento"
+                android:ems="10"
+                android:inputType="text" />
 
             <EditText
                 android:id="@+id/editPassword"
@@ -146,7 +112,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_below="@+id/textView9"
-                android:src="@drawable/linea_separacion1" android:contentDescription="TODO"/>
+                android:contentDescription="TODO"
+                android:src="@drawable/linea_separacion1" />
 
             <ImageView
                 android:id="@+id/imageView4"
@@ -154,7 +121,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_below="@+id/textView6"
-                android:src="@drawable/linea_separacion1" android:contentDescription="TODO"/>
+                android:contentDescription="TODO"
+                android:src="@drawable/linea_separacion1" />
 
             <ImageView
                 android:id="@+id/imageView2"
@@ -162,7 +130,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_below="@+id/editPassword"
-                android:src="@drawable/linea_separacion1" android:contentDescription="TODO"/>
+                android:contentDescription="TODO"
+                android:src="@drawable/linea_separacion1" />
 
             <TextView
                 android:id="@+id/textView8"
@@ -172,14 +141,6 @@
                 android:layout_below="@+id/imageView4"
                 android:contentDescription="TODO"
                 android:text="@string/sexoregistro" />
-
-            <ImageView
-                android:id="@+id/imageView6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:src="@drawable/linea_separacion3" />
 
             <RadioButton
                 android:id="@+id/radioButtonMujer"
@@ -213,6 +174,14 @@
                 android:layout_alignBottom="@+id/radioButtonMujer"
                 android:layout_alignRight="@+id/editFechaNacimiento"
                 android:text="@string/entrenadorregistro" />
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/checkBoxEntrenador"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/linea_separacion3" />
 
         </RelativeLayout>
 

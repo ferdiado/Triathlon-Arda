@@ -2,6 +2,7 @@ package com.arda.screens;
 
 import java.util.ArrayList;
 
+import com.arda.BBD.Users;
 import com.arda.tasukete.AdaptadorRejilla;
 import com.arda.tasukete.ElementoDeportista;
 
@@ -178,6 +179,10 @@ public class ControlDeportistas extends Activity{
 					ElementoDeportista eld=(ElementoDeportista)arg0.getItemAtPosition(arg2);
 					TextView txtNombre = (TextView) arg1.findViewById(R.id.nomDeportista);
 					LinearLayout fondo = (LinearLayout) arg1.findViewById(R.id.elLinearLayout);
+					Intent i = new Intent(ControlDeportistas.this, Registro.class);
+					i.putExtra("Cod", 1);
+					i.putExtra("iduser", eld.getNombre());
+					startActivity(i);
 					Toast.makeText(getApplicationContext(), eld.getNombre(), Toast.LENGTH_SHORT).show();
 					//metododedani(eld.getNombre());
 				}
@@ -252,18 +257,22 @@ public class ControlDeportistas extends Activity{
 				}
 
 			});
-			/*btnAceptar = (ImageButton) findViewById(R.id.botonAceptarDeportistas);
+			btnAceptar = (ImageButton) findViewById(R.id.botonAceptarDeportistas);
 			btnAceptar.setOnClickListener(new OnClickListener() {
 				
 				@Override
 				public void onClick(View v) {
 					// TODO Auto-generated method stub
-					Intent i = new Intent(ControlDeportistas.this, Registro.class);
-					i.putStringArrayListExtra("deportistas", deportistasSeleccionados);
-					startActivity(i);
-					Toast.makeText(getApplicationContext(), "salta", Toast.LENGTH_SHORT).show();
+					Users u = new Users(getApplicationContext());
+					for(int i=0;i<deportistasSeleccionados.size()-1;i++){					
+						u.darBaja(deportistasSeleccionados.get(i));
+						Toast.makeText(getApplicationContext(), "Eliminado completado", Toast.LENGTH_SHORT).show();
+						
+					}
+						
+					
 				}
-			});*/
+			});
 			break;
 		default:
 			break;

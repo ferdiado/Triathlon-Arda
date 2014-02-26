@@ -24,13 +24,10 @@ public class TasuketeRegistro extends Activity {
         Users u = new Users(getApplicationContext());
         String User = i.getStringExtra("IDus");
         String Pass = i.getStringExtra("Pwrd");
-        String Nombre1 = i.getStringExtra("Nomb");
+        String Nombre = i.getStringExtra("Nomb");
         String Fecha = i.getStringExtra("Fech");
-        String Apellido1 = i.getStringExtra("Ape1");
-        String Apellido2 = i.getStringExtra("Ape2");
-        String Nombre = Nombre1+" "+Apellido1+" "+Apellido2;
         Boolean Sexo = i.getBooleanExtra("Sexo", false);
-        //caso = i.getIntExtra("case", 4);
+        caso = i.getIntExtra("code", 4);
         Intent iOut = new Intent(TasuketeRegistro.this, Registro.class);
         switch(caso){
         case 0:
@@ -39,7 +36,9 @@ public class TasuketeRegistro extends Activity {
             TasuketeRegistro.this.finish();
             break;
         case 1:            
-            
+        	 u.modificarEntrada(User, Pass, Nombre, Fecha, null, false, Sexo, "sa.png");
+             setResult(Activity.RESULT_OK, iOut);
+             TasuketeRegistro.this.finish();
             break;
         default:            
             setResult(Activity.RESULT_CANCELED, iOut);

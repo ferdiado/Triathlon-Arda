@@ -65,6 +65,7 @@ Button bRegister;//Decir a josu que ponga pass como id del bPass;
             @Override
             public void onClick(View v) {
             	Intent i = new Intent(Login.this, Registro.class);
+            	i.putExtra("Cod", 0);
             	startActivity(i);
             			
             		
