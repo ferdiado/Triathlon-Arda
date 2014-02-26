@@ -263,5 +263,39 @@ public class Tiempos {
 
 		}
 	
-	
+	/**
+	 * El siguiente método devuelve los campos necesarios en la pantalla Lista de sesiones de entrenamientos con todos los usuarios de un deportista.
+	 * @param entrenador
+	 * @return IDSESION
+	 * @return DISREC
+	 * @return SEG
+	 * @return MINUTOS
+	 * @return HORAS
+	 * 
+	 */
+		public ArrayList<String> sesionesEntrenamiento(String entrenador){
+			Log.d("BBDD", "llega al metodo de graficaEntrena");
+			SQLiteDatabase nBD= db1.getReadableDatabase();
+			ArrayList<String> resultados= null;
+			String[] args = new String[] {entrenador};
+			Cursor c= nBD.rawQuery("SELECT Tiempos.IDSESION,Tiempos.HORAS,Tiempos.MINUTOS,Tiempos.SEG,Tiempos.DISREC FROM Tiempos, Users WHERE Tiempos.IDUSER=Users.IDUSER AND Tiempos.IDCOM IS NULL AND Tiempos.MODO='ENTRENAMIENTO' AND  Users.ENTRENADOR=? AND USERS.FECHABAJA IS NULL;", args);
+
+		
+				resultados = new ArrayList<String>();
+
+				//Recorremos el cursor hasta que no haya más registros
+				while(c.moveToNext()){
+					Log.d("BBDD", "entra aqui?");
+					String resultado= c.getString(0);
+					resultados.add(resultado);
+				};
+				Log.d("BBDD", "longitud:"+resultados.size());
+			
+			c.close();
+			nBD.close();
+			return resultados;
+
+
+		}
+		
 }
