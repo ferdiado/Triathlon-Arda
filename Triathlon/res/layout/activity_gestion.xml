@@ -2,10 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/LinearLayout1"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent" 
+    android:background="@drawable/fondo_gestion">
 
-    <LinearLayout
-        android:id="@+id/LinearLayout2"
+    <RelativeLayout
+        android:id="@+id/RelativeLayout1"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="center"
@@ -16,38 +17,79 @@
             android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="30dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="18dp"
             android:text="@string/labelTituloGesDepor"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textSize="35sp" 
-            android:typeface="serif"/>
+            android:textSize="35sp"
+            android:typeface="serif" 
+            android:textColor="#FFFFFF"/>
 
         <ImageButton
             android:id="@+id/imageButton1"
             android:layout_width="133dp"
             android:layout_height="126dp"
-            android:layout_gravity="center"
-            android:src="@drawable/btn_anadir" />
+            android:layout_alignRight="@+id/textView1"
+            android:layout_below="@+id/textView1"
+            android:layout_marginRight="38dp"
+            android:layout_marginTop="18dp"
+            android:src="@drawable/btn_anadir_transparente" />
 
         <ImageButton
             android:id="@+id/imageButton2"
             android:layout_width="133dp"
             android:layout_height="126dp"
-            android:layout_gravity="center"
-            android:src="@drawable/btn_modificar" />
+            android:layout_alignLeft="@+id/imageButton1"
+            android:layout_below="@+id/imageButton1"
+            android:src="@drawable/btn_modificar_transparente" />
 
         <ImageButton
             android:id="@+id/imageButton3"
             android:layout_width="133dp"
             android:layout_height="126dp"
-            android:layout_gravity="center"
-            android:src="@drawable/btn_eliminar" />
+            android:layout_alignLeft="@+id/imageButton2"
+            android:layout_below="@+id/imageButton2"
+            android:src="@drawable/btn_eliminar_transparente" />
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/imageButton1"
+            android:layout_alignParentLeft="true"
+            android:layout_marginBottom="46dp"
+            android:layout_marginLeft="38dp"
+            android:text="Añadir usuario"
+            android:textAppearance="?android:attr/textAppearanceLarge" 
+            android:textColor="#FFFFFF"/>
 
-    <LinearLayout
-        android:id="@+id/LinearLayout2"
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/imageButton2"
+            android:layout_alignLeft="@+id/textView2"
+            android:layout_marginBottom="42dp"
+            android:text="Modificar usuario"
+            android:textAppearance="?android:attr/textAppearanceLarge" 
+            android:textColor="#FFFFFF"/>
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView3"
+            android:layout_alignTop="@+id/imageButton3"
+            android:layout_marginTop="46dp"
+            android:text="Eliminar usuario"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#FFFFFF" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/RelativeLayout1"
         android:layout_width="208dp"
         android:layout_height="match_parent"
         android:layout_weight="0.13"
@@ -57,21 +99,24 @@
             android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
             android:layout_gravity="center"
             android:layout_marginTop="30dp"
             android:text="@string/labelTituloGesSesi"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textSize="35sp" 
-            android:typeface="serif"/>
+            android:textSize="35sp"
+            android:typeface="serif" 
+            android:textColor="#FFFFFF"/>
 
         <Button
             android:id="@+id/button4"
             android:layout_width="265dp"
             android:layout_height="75dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="50dp"
-            android:background="#008080"
-            android:text="@string/btn_sesiones"
+            android:layout_alignRight="@+id/textView1"
+            android:layout_below="@+id/textView1"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/boton_amarillo_sesiones"
             android:textColor="#ffffff"
             android:textSize="35sp" />
 
@@ -79,24 +124,24 @@
             android:id="@+id/button5"
             android:layout_width="265dp"
             android:layout_height="75dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="50dp"
-            android:background="#008080"
-            android:text="@string/btn_competiciones"
+            android:layout_alignLeft="@+id/button4"
+            android:layout_below="@+id/button4"
+            android:layout_marginTop="34dp"
+            android:background="@drawable/boton_rojo_competiciones"
             android:textColor="#ffffff"
             android:textSize="35sp" />
-        
-         <Button
+
+        <Button
             android:id="@+id/button5"
             android:layout_width="265dp"
             android:layout_height="75dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="50dp"
-            android:background="#008080"
-            android:text="@string/btn_graficos"
+            android:layout_alignLeft="@+id/button4"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="70dp"
+            android:background="@drawable/boton_azul_graficos"
             android:textColor="#ffffff"
             android:textSize="35sp" />
-        
-    </LinearLayout>
+
+    </RelativeLayout>
 
 </LinearLayout>
