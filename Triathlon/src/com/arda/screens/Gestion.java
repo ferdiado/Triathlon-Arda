@@ -61,7 +61,7 @@ ImageButton bDel;
             	
 	}
 		});
-		bSes.setOnClickListener(new OnClickListener( ){
+	/*	bSes.setOnClickListener(new OnClickListener( ){
 			 
             @Override
             public void onClick(View v) {
@@ -78,7 +78,7 @@ ImageButton bDel;
                 startActivity(i);
             	
 	}
-		});
+		});*/
 		
 	}
 }

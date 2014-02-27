@@ -56,18 +56,25 @@ public class ControlDeportistas extends Activity{
 			ArrayAdapter<String> adaptador = new ArrayAdapter<String>(this,R.layout.rejilla,deportistas);
 
 			//Estamos grabando a fuego 19 deportistas esto debería venir de la BB.DD. 
-			for(int i=0;i<19;i++){
+			/*for(int i=0;i<19;i++){
 				Log.d("ARDA",i+"");
 				deportistas.add("deportista:"+i);
-			}
+			}*/
 			
 			//Creamos el Array con los datos de los deportistas
+			deportistas.add("Eva Maria Segovia");
+			deportistas.add("Maria Carolina Vazquez");
+			deportistas.add("Tinizaray Romero");
+			deportistas.add("Gonzalo Vazquez Vilar");
 			ArrayList<ElementoDeportista> datosDeportista = new ArrayList<ElementoDeportista>();
 
-			for(int i=0;i<deportistas.size();i++){
+			/*for(int i=0;i<deportistas.size();i++){
 				datosDeportista.add(new ElementoDeportista(deportistas.get(i),R.drawable.nousuario,false));
-			}
-			
+			}*/
+			datosDeportista.add(new ElementoDeportista(deportistas.get(0),R.drawable.eva,false));
+			datosDeportista.add(new ElementoDeportista(deportistas.get(1),R.drawable.maria,false));
+			datosDeportista.add(new ElementoDeportista(deportistas.get(2),R.drawable.tinizaray,false));
+			datosDeportista.add(new ElementoDeportista(deportistas.get(3),R.drawable.gonzalo,false));
 			rejilla = (GridView) findViewById(R.id.gridView1);
 			
 			rejilla.setAdapter(new AdaptadorRejilla(this,R.layout.elemento_deportista,datosDeportista){
