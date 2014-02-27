@@ -1,7 +1,5 @@
 package com.arda.tiempo;
 
-import com.arda.screens.TiempoDeportista;
-
 import android.widget.TextView;
 
 
@@ -11,11 +9,9 @@ public class MiHilo extends Thread {
 	int centesimas = 00,minutos=00, segundos=00, horas=00;
 	Hand handler;
 	String cron;
-	TiempoDeportista c;
 
 	//Cuando incio el hilo ya está detenido a false y pausado a true
 	public MiHilo(TextView t){
-		c = new TiempoDeportista();
 		detenido = false;
 		pausado = true;
 		handler = new Hand(t); 

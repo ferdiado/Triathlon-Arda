@@ -33,5 +33,6 @@
         <activity android:name="com.arda.screens.Estadisticas"></activity>
         <activity android:name="com.arda.screens.Disciplinas"></activity>
         <service android:name="com.arda.tasukete.ServicioBD"></service>
+        <activity android:name="Cronometros"></activity>
         </application>
 </manifest>

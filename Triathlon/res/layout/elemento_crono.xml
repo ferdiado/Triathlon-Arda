@@ -1,0 +1,132 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/contenedor"
+        android:layout_width="450dp"
+        android:layout_height="190dp"
+        android:layout_weight="0.67"
+        android:background="@drawable/marcofragment" >
+
+        <LinearLayout
+            android:id="@+id/DatosDeportista"
+            android:layout_width="155dp"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:background="@drawable/marco_usuario_gris_claro"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:id="@+id/imgDeportista"
+                android:layout_width="110dp"
+                android:layout_height="130dp"
+                android:layout_gravity="center"
+                android:layout_margin="2dp"
+                android:gravity="center"
+                android:src="@drawable/eva" />
+
+            <TextView
+                android:id="@+id/nomDeportista"
+                android:layout_width="150dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="nombre"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ControlesBotones"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <ImageButton
+                android:id="@+id/playBoton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.47"
+                android:src="@drawable/ic_action_play" />
+
+            <ImageButton
+                android:id="@+id/stopBoton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.47"
+                android:src="@drawable/ic_action_stop" />
+
+            <ImageButton
+                android:id="@+id/dispositivoBoton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.47"
+                android:src="@drawable/ic_action_phone" />
+
+            <ImageButton
+                android:id="@+id/pulsacionesBoton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.47"
+                android:src="@drawable/corazon" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/Adquision"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.47"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/textCrono"
+                android:layout_width="225dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:layout_weight="0.05"
+                android:gravity="center"
+                android:text="00:00:00"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textSize="40sp" />
+
+            <TextView
+                android:id="@+id/textVueltas"
+                android:layout_width="225dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="0.02"
+                android:gravity="center"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/insertDistanciaTotal"
+                android:layout_width="230dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.05"
+                android:ems="10"
+                android:inputType="numberDecimal"
+                android:textSize="12sp" >
+
+                <requestFocus />
+            </EditText>
+
+            <TextView
+                android:id="@+id/textPulsaciones"
+                android:layout_width="230dp"
+                android:layout_height="10dp"
+                android:layout_weight="0.02"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="20sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
