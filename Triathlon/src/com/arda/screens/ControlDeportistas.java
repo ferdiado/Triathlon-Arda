@@ -123,7 +123,7 @@ public class ControlDeportistas extends Activity{
 				@Override
 				public void onClick(View v) {
 					// TODO Auto-generated method stub
-					Intent i = new Intent(ControlDeportistas.this, Registro.class);
+					Intent i = new Intent(ControlDeportistas.this, Cronometros.class);
 					i.putStringArrayListExtra("deportistas", deportistasSeleccionados);
 					startActivity(i);
 					Toast.makeText(getApplicationContext(), "salta", Toast.LENGTH_SHORT).show();

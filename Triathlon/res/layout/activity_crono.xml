@@ -20,7 +20,7 @@
 
         <fragment
             android:id="@+id/Fragment1"
-            android:name="com.fadad.deportistas4.CronoDeportista"
+            android:name="com.arda.screens.CronoDeportista"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="2dp" />
@@ -31,7 +31,7 @@
 
         <fragment
             android:id="@+id/Fragment2"
-            android:name="com.fadad.deportistas4.CronoDeportista2"
+            android:name="com.arda.screens.CronoDeportista2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="2dp" />
@@ -53,14 +53,14 @@
 
         <fragment
             android:id="@+id/fragment3"
-            android:name="com.fadad.deportistas4.CronoDeportista3"
+            android:name="com.arda.screens.CronoDeportista3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="2dp" />
 
         <fragment
             android:id="@+id/fragment4"
-            android:name="com.fadad.deportistas4.CronoDeportista4"
+            android:name="com.arda.screens.CronoDeportista4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="2dp" />
